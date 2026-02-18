@@ -6,7 +6,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Data Quality Auditor — a Python framework that dynamically audits any CSV file without prior configuration. It uses classical statistics (no ML) to detect anomalies, outliers, nulls, format errors, PII, statistical drift, and business rule violations, then generates severity-classified reports in 7 formats. The full specification lives in `SkillDeCalidad.md`.
 
-## Setup & Run
+## Quick Start (One-Click)
+
+```bash
+# 1. Coloca tu CSV en la carpeta de entrada
+cp tu_archivo.csv pon_aqui_el_reporte_a_analizar/
+
+# 2. Configura tu API key de OpenAI
+echo "OPENAI_API_KEY=sk-..." > .env
+
+# 3. Ejecuta
+./start.sh
+
+# 4. Abre el resultado
+open resultado/reporte_calidad.md
+```
+
+El script `start.sh` hace todo automáticamente:
+1. Busca el CSV en `pon_aqui_el_reporte_a_analizar/`
+2. Ejecuta la auditoría completa (70+ checks estadísticos)
+3. Genera un reporte visual Markdown con interpretación IA (GPT-4o-mini)
+4. Guarda todo en `resultado/`
+
+## Setup & Run (Advanced)
 
 ```bash
 python -m venv venv && source venv/bin/activate
@@ -45,41 +67,22 @@ python -m pytest tests/test_new_features.py::test_scoring_configurable -v
 
 Exit codes: 0=OK, 1=issues found, 2=critical issues.
 
-## Output Organization
-
-Every run auto-generates all report formats inside a serial-numbered folder:
+## Folder Structure
 
 ```
-outputs/
-├── 001_test_iris/
-│   ├── report.json           # Full structured report
-│   ├── report.md             # Markdown with charts
-│   ├── report.html           # Interactive HTML with Chart.js
-│   ├── report.txt            # Plain text
-│   ├── report.xlsx           # Excel with formatted tabs
-│   ├── executive_summary.md  # 1-page stakeholder report
-│   └── flagged_rows.csv      # Problematic rows with reasons
-├── 002_test_flights/
-│   └── ...
-└── 003_drift_current/
-    └── drift_report.json
-```
-
-- `NNN_<csv_basename>` auto-increments (001, 002, ...)
-- Explicit flags (`--output`, `--md-report`, `--html-report`, `--excel-report`, `--text-report`) override the auto path
-- `--no-auto-output` disables the auto-output folder entirely
-
-## Architecture
-
-6-layer sequential pipeline with dataset-level checks: CSV → DataLoader → TypeDetector → CheckRegistry → CheckEngine (per-column + dataset-level) → ScoringSystem → ReportBuilder → Reports (7 formats).
-
-```
+├── start.sh                        # One-click: audit + AI report
+├── pon_aqui_el_reporte_a_analizar/ # Drop your CSV here
+├── resultado/                      # Generated reports (after running start.sh)
+│   ├── report.json                 #   Raw audit data
+│   └── reporte_calidad.md          #   Visual AI-powered Markdown report
 ├── data_quality_auditor.py         # CLI entry point (argparse, all modes, auto-output)
+├── quality_report_agent.py         # LangGraph agent: hybrid visual+AI quality report
 ├── generate_report_md.py           # Dynamic Markdown report generator
 ├── generate_report_html.py         # Interactive HTML report with Chart.js
 ├── generate_report_executive.py    # 1-page executive summary
 ├── generate_report_excel.py        # Excel with formatted tabs (openpyxl)
 ├── SkillDeCalidad.md               # Original specification (Spanish)
+├── .env                            # OpenAI API key (gitignored)
 ├── core/
 │   ├── data_loader.py              # Layer 1: encoding/delimiter detection, binary detection, large file sampling
 │   ├── type_detector.py            # Layer 2: assigns 1 of 13 SemanticTypes per column
@@ -138,6 +141,38 @@ outputs/
 └── requirements.txt
 ```
 
+## LangGraph Quality Report Agent
+
+`quality_report_agent.py` — Hybrid approach: deterministic visuals + LLM narrative.
+
+**Pipeline LangGraph:**
+```
+START → load_report → [analyze_overview ∥ analyze_columns ∥ analyze_issues] → assemble_report → END
+```
+
+- `load_report`: Pure Python — reads/validates JSON
+- `analyze_overview`: **Hybrid** — Python generates mermaid pie chart, severity table, column health map; LLM adds narrative interpretation
+- `analyze_columns`: **Hybrid** — Python generates per-column health cards, histograms, stats tables, issue tables; LLM adds per-column interpretation
+- `analyze_issues`: **Hybrid** — Python generates issue cards, correlation diagram, remediation flowchart, action plan table; LLM adds root-cause analysis
+- `assemble_report`: **Hybrid** — Python assembles all sections; LLM generates conclusion
+
+Visual elements generated deterministically (guaranteed correct):
+- Mermaid pie chart (severity distribution)
+- Mermaid graph (column health map with color coding)
+- Mermaid graph (correlation map with VIF coloring)
+- Mermaid flowchart (remediation sequence)
+- Text histograms (distribution bars)
+- Severity badge tables
+- Health bars (▓▓▓▓▓░░░░░)
+- Per-column stats tables
+
+Requires `OPENAI_API_KEY` in `.env`. Uses GPT-4o-mini via `langchain-openai`.
+
+```bash
+python quality_report_agent.py --input resultado/report.json
+python quality_report_agent.py --input resultado/report.json --output custom.md
+```
+
 ## Key Design Decisions
 
 - **TypeDetector uses priority-based detection**: first match wins in order: EMPTY → CONSTANT → BOOLEAN → numeric subtypes → date/email/phone patterns → cardinality-based classification → MIXED
@@ -147,6 +182,7 @@ outputs/
 - **Two levels of checks**: per-column checks (mapped via CheckRegistry) and dataset-level checks (cross-column, null patterns, timeseries, PII, temporal completeness)
 - **Config-aware engine**: checks can be disabled, severities overridden, and scoring weights adjusted per column via YAML config
 - **Robustness**: binary file detection, header-only file detection, large file sampling (>500MB), column limit (500), bad line skipping
+- **Hybrid AI reports**: visual elements (mermaid, tables, histograms) generated deterministically in Python for guaranteed correctness; LLM (GPT-4o-mini) adds narrative interpretation only
 
 ## Config System
 
@@ -202,7 +238,7 @@ composite_keys:
 
 ## Dependencies
 
-pandas, numpy, scipy, chardet, rapidfuzz, python-dateutil, pymannkendall, rich, statsmodels, pyyaml, openpyxl, pytest.
+pandas, numpy, scipy, chardet, rapidfuzz, python-dateutil, pymannkendall, rich, statsmodels, pyyaml, openpyxl, pytest, langgraph, langchain-openai, langchain-core, python-dotenv.
 
 ## Language
 

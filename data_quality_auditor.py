@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Data Quality Auditor — Auditoría dinámica de calidad de datos para cualquier CSV."""
 
+import logging
 import os
 import sys
 import glob
@@ -14,6 +15,8 @@ from core.check_engine import CheckEngine
 from core.scoring_system import ScoringSystem
 from core.report_builder import ReportBuilder
 from generate_report_md import generate_markdown
+
+logger = logging.getLogger(__name__)
 
 
 OUTPUTS_DIR = "outputs"
@@ -48,20 +51,19 @@ def audit_single(input_path, args, schema=None, config=None):
     df_raw, df, metadata = loader.load(input_path)
 
     if not args.quiet:
-        print(f"Archivo cargado: {metadata['file_name']}")
-        print(f"  Filas: {metadata['n_rows']:,} | Columnas: {metadata['n_cols']} | "
-              f"Encoding: {metadata['encoding']} | Delimiter: {metadata['delimiter']}")
-        print()
+        logger.info("Archivo cargado: %s", metadata['file_name'])
+        logger.info("  Filas: %s | Columnas: %s | Encoding: %s | Delimiter: %s",
+                     f"{metadata['n_rows']:,}", metadata['n_cols'],
+                     metadata['encoding'], metadata['delimiter'])
 
     # Capa 2: Detectar tipos
     detector = TypeDetector()
     column_types = detector.detect(df_raw, df)
 
     if not args.quiet:
-        print("Tipos semánticos detectados:")
+        logger.info("Tipos semánticos detectados:")
         for col, stype in column_types.items():
-            print(f"  {col}: {stype.value}")
-        print()
+            logger.info("  %s: %s", col, stype.value)
 
     # Capa 3-4: Ejecutar checks
     engine = CheckEngine(config=config)
@@ -94,6 +96,16 @@ def audit_single(input_path, args, schema=None, config=None):
     return report, scoring, df_raw, df, column_types, results
 
 
+def _setup_logging(quiet: bool = False) -> None:
+    """Configura logging para la aplicación."""
+    level = logging.WARNING if quiet else logging.INFO
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Data Quality Auditor: auditoría automática de calidad para CSVs"
@@ -120,6 +132,7 @@ def main():
                         help="No generar outputs automáticos en outputs/")
 
     args = parser.parse_args()
+    _setup_logging(quiet=args.quiet)
 
     # Validar argumentos
     if not args.input and not args.batch:
@@ -160,7 +173,7 @@ def main():
         with open(out, "w", encoding="utf-8") as f:
             json.dump(drift_report, f, ensure_ascii=False, indent=2, default=str)
         if not args.quiet:
-            print(f"Drift report guardado en: {out}")
+            logger.info("Drift report guardado en: %s", out)
             detector.print_summary(drift_report)
         return
 
@@ -170,7 +183,7 @@ def main():
             args.input, args, schema=schema, config=config
         )
     except Exception as e:
-        print(f"Error al auditar archivo: {e}", file=sys.stderr)
+        logger.error("Error al auditar archivo: %s", e)
         sys.exit(2)
 
     # ── Determinar carpeta de salida ──
@@ -188,8 +201,8 @@ def main():
         )
         if trend:
             report["quality_trend"] = trend
-    except Exception:
-        pass
+    except Exception as e:
+        logger.warning("No se pudo generar trend histórico: %s", e)
 
     # ── Flagged rows ──
     flagged_df = None
@@ -197,8 +210,8 @@ def main():
         from core.flagged_rows import FlaggedRowsExporter
         exporter = FlaggedRowsExporter()
         flagged_df = exporter.collect_flagged_rows(df_raw, df, results, column_types)
-    except Exception:
-        pass
+    except Exception as e:
+        logger.warning("No se pudo exportar flagged rows: %s", e)
 
     # ── Generar outputs ──
     builder = ReportBuilder()
@@ -210,7 +223,7 @@ def main():
     if json_path:
         builder.to_json(report, json_path)
         if not args.quiet:
-            print(f"Reporte JSON guardado en: {json_path}")
+            logger.info("Reporte JSON guardado en: %s", json_path)
 
     # Markdown
     md_path = args.md_report
@@ -221,7 +234,7 @@ def main():
         with open(md_path, "w", encoding="utf-8") as f:
             f.write(md)
         if not args.quiet:
-            print(f"Reporte Markdown guardado en: {md_path}")
+            logger.info("Reporte Markdown guardado en: %s", md_path)
 
     # HTML
     html_path = args.html_report
@@ -233,7 +246,7 @@ def main():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html)
         if not args.quiet:
-            print(f"Reporte HTML guardado en: {html_path}")
+            logger.info("Reporte HTML guardado en: %s", html_path)
 
     # Executive summary
     if run_dir:
@@ -244,9 +257,9 @@ def main():
             with open(exec_path, "w", encoding="utf-8") as f:
                 f.write(exec_md)
             if not args.quiet:
-                print(f"Resumen ejecutivo guardado en: {exec_path}")
-        except Exception:
-            pass
+                logger.info("Resumen ejecutivo guardado en: %s", exec_path)
+        except Exception as e:
+            logger.warning("No se pudo generar resumen ejecutivo: %s", e)
 
     # Excel
     excel_path = args.excel_report
@@ -257,12 +270,11 @@ def main():
             from generate_report_excel import generate_excel
             generate_excel(report, excel_path, flagged_df=flagged_df)
             if not args.quiet:
-                print(f"Reporte Excel guardado en: {excel_path}")
+                logger.info("Reporte Excel guardado en: %s", excel_path)
         except ImportError:
-            if not args.quiet:
-                print("Nota: instalar openpyxl para generar reportes Excel (pip install openpyxl)")
-        except Exception:
-            pass
+            logger.warning("Instalar openpyxl para generar reportes Excel (pip install openpyxl)")
+        except Exception as e:
+            logger.warning("No se pudo generar reporte Excel: %s", e)
 
     # Flagged rows CSV
     if run_dir and flagged_df is not None and len(flagged_df) > 0:
@@ -270,9 +282,10 @@ def main():
             flagged_path = os.path.join(run_dir, "flagged_rows.csv")
             flagged_df.to_csv(flagged_path, index=False, encoding="utf-8")
             if not args.quiet:
-                print(f"Filas flaggeadas guardado en: {flagged_path} ({len(flagged_df):,} flags)")
-        except Exception:
-            pass
+                logger.info("Filas flaggeadas guardado en: %s (%s flags)",
+                            flagged_path, f"{len(flagged_df):,}")
+        except Exception as e:
+            logger.warning("No se pudo exportar flagged rows CSV: %s", e)
 
     # Texto
     txt_path = args.text_report
@@ -285,12 +298,12 @@ def main():
         print(text_report)
 
     if txt_path and not args.quiet:
-        print(f"\nReporte de texto guardado en: {txt_path}")
+        logger.info("Reporte de texto guardado en: %s", txt_path)
 
     if run_dir and not args.quiet:
-        print(f"\n{'='*50}")
-        print(f"  Todos los outputs en: {run_dir}/")
-        print(f"{'='*50}")
+        logger.info("=" * 50)
+        logger.info("  Todos los outputs en: %s/", run_dir)
+        logger.info("=" * 50)
 
     # Exit code
     if scoring["issues_by_severity"]["CRITICAL"] > 0:

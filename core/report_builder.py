@@ -1,4 +1,5 @@
 import json
+import logging
 from datetime import datetime
 from typing import List, Dict, Optional
 
@@ -7,6 +8,8 @@ import numpy as np
 
 from models.semantic_type import SemanticType
 from models.check_result import CheckResult
+
+logger = logging.getLogger(__name__)
 
 
 class ReportBuilder:
@@ -363,8 +366,8 @@ class ReportBuilder:
                                 "bar": "█" * bar_len,
                             })
                         profile["histogram"] = hist
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        logger.debug("No se pudo generar histograma para '%s': %s", col, e)
 
             # Top valores (para cualquier tipo)
             non_null = df[col].dropna()

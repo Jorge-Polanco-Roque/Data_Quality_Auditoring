@@ -6,6 +6,7 @@ cambios de null rate, nuevas columnas, columnas eliminadas.
 """
 
 import json
+import logging
 from datetime import datetime
 from typing import Dict, List
 
@@ -14,6 +15,8 @@ import pandas as pd
 from scipy import stats
 
 from core.data_loader import DataLoader
+
+logger = logging.getLogger(__name__)
 
 
 class DriftDetector:
@@ -165,8 +168,8 @@ class DriftDetector:
                             })
                             if significant:
                                 drift["has_drift"] = True
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        logger.warning("Chi-squared test falló para columna '%s': %s", col, e)
 
                 # Nuevas/eliminadas categorías
                 new_cats = set(cur_cats.index) - set(ref_cats.index)

@@ -1,3 +1,4 @@
+import logging
 import sys
 from typing import List, Dict, Optional
 
@@ -7,6 +8,8 @@ from models.semantic_type import SemanticType
 from models.check_result import CheckResult
 from core.check_registry import CheckRegistry
 from core.config_loader import ConfigLoader
+
+logger = logging.getLogger(__name__)
 
 
 class CheckEngine:
@@ -77,6 +80,7 @@ class CheckEngine:
             from checks.cross_column_checks import run_cross_column_checks
             results.extend(run_cross_column_checks(df, df_raw, column_types))
         except Exception as e:
+            logger.warning("Error en análisis cross-column: %s: %s", type(e).__name__, str(e)[:200])
             results.append(CheckResult(
                 check_id="CROSS_COLUMN", column="__dataset__", passed=True, severity="INFO",
                 value=0.0, threshold=0.0,
@@ -89,6 +93,7 @@ class CheckEngine:
             from checks.null_pattern_checks import run_null_pattern_checks
             results.extend(run_null_pattern_checks(df, df_raw))
         except Exception as e:
+            logger.warning("Error en análisis de nulidad: %s: %s", type(e).__name__, str(e)[:200])
             results.append(CheckResult(
                 check_id="NULL_PATTERNS", column="__dataset__", passed=True, severity="INFO",
                 value=0.0, threshold=0.0,
@@ -101,6 +106,7 @@ class CheckEngine:
             from checks.timeseries_checks import run_timeseries_checks
             results.extend(run_timeseries_checks(df, df_raw, column_types, date_col=date_col))
         except Exception as e:
+            logger.warning("Error en análisis temporal: %s: %s", type(e).__name__, str(e)[:200])
             results.append(CheckResult(
                 check_id="TIMESERIES", column="__dataset__", passed=True, severity="INFO",
                 value=0.0, threshold=0.0,
@@ -113,6 +119,7 @@ class CheckEngine:
             from checks.pii_checks import run_pii_checks
             results.extend(run_pii_checks(df_raw, df))
         except Exception as e:
+            logger.warning("Error en detección PII: %s: %s", type(e).__name__, str(e)[:200])
             results.append(CheckResult(
                 check_id="PII_DETECTION", column="__dataset__", passed=True, severity="INFO",
                 value=0.0, threshold=0.0,
@@ -125,6 +132,7 @@ class CheckEngine:
             from checks.temporal_completeness_checks import run_temporal_completeness_checks
             results.extend(run_temporal_completeness_checks(df, df_raw, column_types, date_col=date_col))
         except Exception as e:
+            logger.warning("Error en completitud temporal: %s: %s", type(e).__name__, str(e)[:200])
             results.append(CheckResult(
                 check_id="TEMPORAL_COMPLETENESS", column="__dataset__", passed=True, severity="INFO",
                 value=0.0, threshold=0.0,
@@ -147,6 +155,8 @@ class CheckEngine:
         try:
             return func(series_raw, series_typed, metadata)
         except Exception as e:
+            logger.warning("Check %s falló en columna '%s': %s: %s",
+                           check_id, column, type(e).__name__, str(e)[:200])
             return CheckResult(
                 check_id=check_id,
                 column=column,

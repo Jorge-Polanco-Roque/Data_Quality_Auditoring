@@ -4,12 +4,16 @@ Checks de series temporales: autocorrelación, estacionalidad, changepoints.
 Se activan cuando existe una columna de fecha y columnas numéricas.
 """
 
+import logging
+
 import numpy as np
 import pandas as pd
 from scipy import stats
 
 from models.check_result import CheckResult
 from models.semantic_type import SemanticType
+
+logger = logging.getLogger(__name__)
 
 
 def run_timeseries_checks(df, df_raw, column_types, date_col=None):
@@ -165,8 +169,8 @@ def _seasonality_check(series, dates, col_name):
                             metadata={"peak_period": peak_period,
                                       "spectral_dominance": round(float(dominance), 4)},
                         ))
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning("Periodogram fallback falló para '%s': %s", col_name, e)
 
     return results
 

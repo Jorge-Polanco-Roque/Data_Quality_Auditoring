@@ -200,3 +200,114 @@ def test_trend_analyzer(tmp_path):
         assert trend["delta_vs_previous"] == -10.0
     finally:
         ta.OUTPUTS_DIR = original
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Tests: Expression validation (business rules security)
+# ═══════════════════════════════════════════════════════════════════════════
+
+def test_business_rule_rejects_injection():
+    """Expresiones con tokens peligrosos deben ser rechazadas."""
+    from core.business_rules import BusinessRulesEngine
+    malicious_rules = [
+        {"name": "Injection", "assertion": "__import__('os').system('ls')", "severity": "HIGH"},
+    ]
+    df = pd.DataFrame({"price": [10, 20]})
+    engine = BusinessRulesEngine(malicious_rules)
+    results = engine.evaluate(df)
+    # Debe producir un resultado con error, no ejecutar código
+    assert len(results) == 1
+    assert results[0].metadata.get("error") is True
+
+
+def test_business_rule_rejects_exec():
+    """Expresiones con exec/eval deben ser rechazadas."""
+    from core.business_rules import BusinessRulesEngine
+    rules = [{"name": "Exec attack", "assertion": "exec('print(1)')", "severity": "HIGH"}]
+    df = pd.DataFrame({"x": [1, 2]})
+    engine = BusinessRulesEngine(rules)
+    results = engine.evaluate(df)
+    assert len(results) == 1
+    assert results[0].metadata.get("error") is True
+
+
+def test_business_rule_safe_expressions_still_work():
+    """Expresiones legítimas siguen funcionando correctamente."""
+    from core.business_rules import BusinessRulesEngine
+    rules = [
+        {"name": "Range check", "assertion": "price >= 0 and price <= 100", "severity": "MEDIUM"},
+        {"name": "Comparison", "condition": "status == 'active'", "assertion": "balance > 0", "severity": "HIGH"},
+    ]
+    df = pd.DataFrame({
+        "price": [10, 50, -5],
+        "status": ["active", "inactive", "active"],
+        "balance": [100, 0, 200],
+    })
+    engine = BusinessRulesEngine(rules)
+    results = engine.evaluate(df)
+    assert len(results) == 2
+    # Range check: -5 falla
+    assert not results[0].passed
+    assert results[0].affected_count == 1
+    # Comparison: ambos activos tienen balance > 0
+    assert results[1].passed
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Tests: Config validation
+# ═══════════════════════════════════════════════════════════════════════════
+
+def test_config_validation_invalid_severity_override():
+    """Severidades inválidas en overrides deben rechazarse."""
+    from core.config_loader import _validate_config, ConfigValidationError
+    config = {"severity_overrides": {"NULL_RATE": "SUPER_CRITICAL"}}
+    with pytest.raises(ConfigValidationError, match="severidad válida"):
+        _validate_config(config)
+
+
+def test_config_validation_invalid_threshold_type():
+    """Thresholds con valores no numéricos deben rechazarse."""
+    from core.config_loader import _validate_config, ConfigValidationError
+    config = {"thresholds": {"NULL_RATE": {"CRITICAL": "alto"}}}
+    with pytest.raises(ConfigValidationError, match="numérico"):
+        _validate_config(config)
+
+
+def test_config_validation_negative_scoring():
+    """Scoring con valores negativos debe rechazarse."""
+    from core.config_loader import _validate_config, ConfigValidationError
+    config = {"scoring": {"CRITICAL": -5}}
+    with pytest.raises(ConfigValidationError, match=">= 0"):
+        _validate_config(config)
+
+
+def test_config_validation_invalid_business_rule():
+    """Business rules sin assertion deben rechazarse."""
+    from core.config_loader import _validate_config, ConfigValidationError
+    config = {"business_rules": [{"name": "Bad rule", "severity": "HIGH"}]}
+    with pytest.raises(ConfigValidationError, match="assertion"):
+        _validate_config(config)
+
+
+def test_config_validation_valid_config():
+    """Config válido no debe lanzar excepciones."""
+    from core.config_loader import _validate_config
+    config = {
+        "thresholds": {"NULL_RATE": {"CRITICAL": 0.50, "HIGH": 0.20}},
+        "disabled_checks": ["BENFORD_LAW"],
+        "severity_overrides": {"TREND_CHANGE": "INFO"},
+        "scoring": {"CRITICAL": 25, "HIGH": 10},
+        "column_weights": {"amount": 3.0},
+        "business_rules": [{"name": "Test", "assertion": "x > 0", "severity": "HIGH"}],
+        "foreign_keys": [{"child_table": "a.csv", "child_column": "id",
+                          "parent_table": "b.csv", "parent_column": "id"}],
+    }
+    _validate_config(config)  # No exception = pass
+
+
+def test_config_validation_missing_fk_fields():
+    """Foreign keys con campos faltantes deben rechazarse."""
+    from core.config_loader import _validate_config, ConfigValidationError
+    config = {"foreign_keys": [{"child_table": "a.csv"}]}
+    with pytest.raises(ConfigValidationError, match="faltan campos"):
+        _validate_config(config)

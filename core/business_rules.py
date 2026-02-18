@@ -23,12 +23,57 @@ Formato YAML:
       severity: MEDIUM
 """
 
+import logging
+import re
 from typing import List, Dict, Any, Optional
 
 import pandas as pd
 import numpy as np
 
 from models.check_result import CheckResult
+
+logger = logging.getLogger(__name__)
+
+# ── Validación de expresiones para prevenir inyección de código ──
+# Solo se permiten: nombres de columnas, operadores de comparación, lógicos,
+# literales numéricos, literales de string entre comillas, paréntesis.
+_SAFE_EXPR_RE = re.compile(
+    r"^[\w\s\.\+\-\*/<>=!&|~(),'\"\d]+$"
+)
+
+# Tokens prohibidos que podrían usarse para inyección
+_FORBIDDEN_TOKENS = {
+    "__import__", "exec", "eval", "compile", "globals", "locals",
+    "getattr", "setattr", "delattr", "__builtins__", "open", "os.",
+    "sys.", "subprocess", "import ", "lambda", "__class__", "__subclasses__",
+}
+
+
+def _validate_expression(expr: str, expr_type: str = "expression") -> None:
+    """Valida que una expresión sea segura para pd.eval(). Lanza ValueError si no lo es."""
+    if not isinstance(expr, str):
+        raise ValueError(f"{expr_type} debe ser string, recibido: {type(expr).__name__}")
+
+    stripped = expr.strip()
+    if not stripped:
+        raise ValueError(f"{expr_type} no puede estar vacío")
+
+    if len(stripped) > 500:
+        raise ValueError(f"{expr_type} demasiado largo ({len(stripped)} chars, máximo 500)")
+
+    # Buscar tokens prohibidos (case-insensitive)
+    lower = stripped.lower()
+    for token in _FORBIDDEN_TOKENS:
+        if token in lower:
+            raise ValueError(
+                f"{expr_type} contiene token prohibido: '{token}'"
+            )
+
+    # Verificar que solo contiene caracteres permitidos
+    if not _SAFE_EXPR_RE.match(stripped):
+        raise ValueError(
+            f"{expr_type} contiene caracteres no permitidos: {stripped!r}"
+        )
 
 
 class BusinessRulesEngine:
@@ -45,6 +90,7 @@ class BusinessRulesEngine:
                 result = self._evaluate_rule(rule, df)
                 results.append(result)
             except Exception as e:
+                logger.warning("Error evaluando regla '%s': %s", rule.get('name', '?'), e)
                 results.append(CheckResult(
                     check_id="BUSINESS_RULE",
                     column="__dataset__",
@@ -56,6 +102,11 @@ class BusinessRulesEngine:
                     metadata={"error": True, "rule_name": rule.get("name", "")},
                 ))
         return results
+
+    def _safe_eval(self, df: pd.DataFrame, expression: str, expr_type: str = "expression") -> pd.Series:
+        """Evalúa una expresión de forma segura, validando antes de ejecutar."""
+        _validate_expression(expression, expr_type)
+        return df.eval(expression)
 
     def _evaluate_rule(self, rule: Dict, df: pd.DataFrame) -> CheckResult:
         """Evalúa una sola regla de negocio."""
@@ -77,7 +128,7 @@ class BusinessRulesEngine:
         # Aplicar condición (filtrar filas donde aplica la regla)
         if condition:
             try:
-                mask = df.eval(condition)
+                mask = self._safe_eval(df, condition, f"condición de regla '{name}'")
             except Exception:
                 # Intentar con evaluación manual para condiciones con "is not null"
                 mask = self._eval_condition(condition, df)
@@ -97,7 +148,7 @@ class BusinessRulesEngine:
 
         # Evaluar assertion
         try:
-            assertion_mask = applicable_df.eval(assertion)
+            assertion_mask = self._safe_eval(applicable_df, assertion, f"assertion de regla '{name}'")
         except Exception:
             assertion_mask = self._eval_assertion(assertion, applicable_df)
 
@@ -129,6 +180,7 @@ class BusinessRulesEngine:
 
     def _eval_condition(self, condition: str, df: pd.DataFrame) -> pd.Series:
         """Evaluación manual para condiciones que pd.eval no soporta."""
+        _validate_expression(condition, "condición")
         cond = condition.strip()
 
         # "column is not null"
@@ -147,15 +199,18 @@ class BusinessRulesEngine:
 
     def _eval_assertion(self, assertion: str, df: pd.DataFrame) -> pd.Series:
         """Evaluación manual para assertions complejas."""
+        _validate_expression(assertion, "assertion")
+
         # Intentar con "and" splitting
         if " and " in assertion.lower():
             parts = assertion.split(" and ")
             result = pd.Series(True, index=df.index)
             for part in parts:
                 try:
+                    _validate_expression(part.strip(), "sub-assertion")
                     result = result & df.eval(part.strip())
                 except Exception:
-                    pass
+                    logger.warning("Sub-assertion no evaluable: %s", part.strip())
             return result
 
         return pd.Series(True, index=df.index)
