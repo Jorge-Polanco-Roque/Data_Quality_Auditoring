@@ -13,10 +13,10 @@ python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 
 # Basic audit — generates all outputs in outputs/NNN_nombre/
-python data_quality_auditor.py --input data.csv
+python data_quality_auditor.py --input tests/fixtures/test_iris.csv
 
 # With schema validation and custom config
-python data_quality_auditor.py --input data.csv --schema schema.yaml --config config.yaml
+python data_quality_auditor.py --input tests/fixtures/test_iris.csv --schema tests/fixtures/test_iris_schema.yaml --config tests/fixtures/test_config.yaml
 
 # Override specific output paths (still auto-generates the rest in outputs/)
 python data_quality_auditor.py --input data.csv --output custom.json --excel-report custom.xlsx
@@ -33,8 +33,14 @@ python data_quality_auditor.py --input current.csv --compare reference.csv
 # Filter severity, specify date column, silent mode
 python data_quality_auditor.py --input data.csv --min-severity HIGH --date-col fecha --quiet
 
-# Run tests
+# Run all tests
 python -m pytest tests/ -v
+
+# Run a single test file
+python -m pytest tests/test_pii_checks.py -v
+
+# Run a single test function
+python -m pytest tests/test_new_features.py::test_scoring_configurable -v
 ```
 
 Exit codes: 0=OK, 1=issues found, 2=critical issues.
@@ -73,7 +79,7 @@ outputs/
 ├── generate_report_html.py         # Interactive HTML report with Chart.js
 ├── generate_report_executive.py    # 1-page executive summary
 ├── generate_report_excel.py        # Excel with formatted tabs (openpyxl)
-├── outputs/                        # Auto-generated run folders (NNN_nombre/)
+├── SkillDeCalidad.md               # Original specification (Spanish)
 ├── core/
 │   ├── data_loader.py              # Layer 1: encoding/delimiter detection, binary detection, large file sampling
 │   ├── type_detector.py            # Layer 2: assigns 1 of 13 SemanticTypes per column
@@ -107,6 +113,28 @@ outputs/
 │   ├── check_result.py             # CheckResult dataclass
 │   └── semantic_type.py            # SemanticType enum (13 types)
 ├── tests/                          # pytest unit tests (89 tests)
+│   ├── conftest.py                 # Shared fixtures (FIXTURES_DIR path)
+│   ├── fixtures/                   # Test data files
+│   │   ├── test_iris.csv
+│   │   ├── test_flights.csv
+│   │   ├── test_dirty.csv
+│   │   ├── titanic.csv
+│   │   ├── test_iris_schema.yaml
+│   │   └── test_config.yaml
+│   ├── test_universal_checks.py
+│   ├── test_numeric_checks.py
+│   ├── test_categorical_checks.py
+│   ├── test_hypothesis_checks.py
+│   ├── test_benford_check.py
+│   ├── test_cross_column.py
+│   ├── test_null_patterns.py
+│   ├── test_schema_validator.py
+│   ├── test_pipeline.py
+│   ├── test_pii_checks.py
+│   ├── test_business_rules.py
+│   ├── test_flagged_rows.py
+│   └── test_new_features.py
+├── outputs/                        # Auto-generated run folders (NNN_nombre/), gitignored
 └── requirements.txt
 ```
 
