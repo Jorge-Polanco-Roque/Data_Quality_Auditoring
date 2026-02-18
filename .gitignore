@@ -31,7 +31,7 @@ outputs/
 
 # Data files (CSVs may contain sensitive data)
 *.csv
-!tests/*.csv
+!tests/fixtures/*.csv
 
 # Config files that may contain sensitive info
 # (uncomment if yours do)

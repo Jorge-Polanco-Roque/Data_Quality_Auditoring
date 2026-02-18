@@ -1,0 +1,516 @@
+id_pedido,fecha,cliente_email,monto,categoria,region,telefono,rating,notas,columna_vacia,constante
+PED-00000,2024-07-20,user0@empresa.com,25.05,Rop,Sur,+52 55 1139 2424,,Producto dañado,,MXN
+PED-00001,2024-11-08,user1@empresa.com,97.19,Electrónica,NORTE,+52 55 9708 7043,5,null,,MXN
+PED-00002,2024-05-07,user2@empresa.com,35.01,Rop,norte,+52 55 7261 1887,5,,,MXN
+PED-00003,2024-10-19,null,20.08,ELECTRONICA,norte,+52 55 1049 4951,3,sin información,,MXN
+PED-00004,2024-07-11,user4@empresa.com,90.19,Rop,NORTE,+52 55 5821 7340,3,Producto dañado,,MXN
+PED-00005,2024-11-24,user5@empresa.com,88.28,electronica,Sur,teléfono inválido,2,Regular,,MXN
+PED-00006,2024-05-04,user6@empresa.com,,Hogra,NORTE,+52 55 8846 9643,4,sin información,,MXN
+PED-00007,2024-08-24,user7@empresa.com,68.67,Hogar,Norte,+52 55 4765 3438,4,Producto dañado,,MXN
+PED-00008,2024-03-22,user8@empresa.com,57.73,Alimentos,Oeste,+52 55 7358 9319,3,sin información,,MXN
+PED-00009,2024-05-02,N/A,118.46,electronica,NORTE,+52 55 5855 7547,5,Entrega rápida,,MXN
+PED-00010,15/03/2024,user10@empresa.com,732.09,Rop,Sur,+52 55 7481 3761,3,sin información,,MXN
+PED-00011,2024-06-02,user11@empresa.com,73.65,Electrónica ,Este,+52 55 7361 6693,5,null,,MXN
+PED-00012,2024-12-21,user12@empresa.com,362.47,Hogar,Norte,+52 55 7160 1517,5,N/A,,MXN
+PED-00013,2024-01-12,user13@empresa.com,113.24,electronica,Este,+52 55 2988 4802,3,N/A,,MXN
+PED-00014,2024-10-22,user14@empresa.com,68.3,Alimentos,NORTE,+52 55 8162 7241,1,N/A,,MXN
+PED-00015,2024-12-25,user15@empresa.com,31.95,Hogra,Norte,+52 55 9399 6633,4,Entrega rápida,,MXN
+PED-00016,2024-01-27,user16@empresa.com,68.92,Hogar,Oeste,+52 55 7309 5117,,Excelente,,MXN
+PED-00017,2024-11-10,user17@empresa.com,64.04,Alimentos,NORTE,+52 55 2518 7163,5,N/A,,MXN
+PED-00018,2024-12-28,user18@empresa.com,23.57,ELECTRONICA,Oeste,+52 55 3195 4554,5,Buen servicio,,MXN
+PED-00019,2024-03-12,user19@empresa.com,27.92,ELECTRONICA,norte,+52 55 3849 2742,1,Entrega rápida,,MXN
+PED-00020,03-15-2024,user20@empresa.com,85.85,Alimentos,Este,+52 55 8519 5195,,Excelente,,MXN
+PED-00021,2024-09-03,user21@empresa.com,,electronica,Norte,+52 55 3305 8619,2,Buen servicio,,MXN
+PED-00022,2024-05-19,user22@empresa.com,,Hogar,Oeste,+52 55 7409 5757,1,Buen servicio,,MXN
+PED-00023,2024-07-21,user23@empresa.com,357.32,electronica,Sur,+52 55 2271 2813,,Buen servicio,,MXN
+PED-00024,2024-09-07,user24@empresa.com,50.46,Ropa,Oeste,+52 55 3461 5120,1,Regular,,MXN
+PED-00025,2024-02-04,user25@empresa.com,9.61,Rop,Sur,teléfono inválido,5,null,,MXN
+PED-00026,2024-09-28,user26@empresa.com,3.9,Ropa,NORTE,+52 55 5396 1816,4,null,,MXN
+PED-00027,2024-02-26,user27@empresa.com,16.03,ELECTRONICA,Norte,+52 55 1082 2920,1,Entrega rápida,,MXN
+PED-00028,2024-09-26,user28@empresa.com,127.74,Hogra,Oeste,+52 55 3093 8071,2,Buen servicio,,MXN
+PED-00029,2024-05-02,user29@empresa.com,11.75,Electrónica,Oeste,+52 55 9367 6285,3,sin información,,MXN
+PED-00030,2024/04/20,user30@empresa.com,155.55,Rop,Norte,+52 55 1369 2818,,Excelente,,MXN
+PED-00031,2024-12-07,user31@empresa.com,119.13,ELECTRONICA,Oeste,+52 55 4490 2779,1,null,,MXN
+PED-00032,2024-12-08,-,48.47,electronica,Sur,+52 55 8294 4676,1,N/A,,MXN
+PED-00033,2024-03-14,user33@empresa.com,8.75,electronica,Oeste,+52 55 9089 3962,2,Entrega rápida,,MXN
+PED-00034,2024-01-04,user34@empresa.com,23.8,electronica,Este,+52 55 5138 3424,4,Excelente,,MXN
+PED-00035,2024-02-08,user35@empresa.com,40.87,Hogra,NORTE,+52 55 5017 9560,1,Entrega rápida,,MXN
+PED-00036,2024-04-02,user36@empresa.com,83.3,Ropa,norte,+52 55 2134 6166,1,Regular,,MXN
+PED-00037,2024-06-22,user37@empresa.com,,Electrónica,Sur,teléfono inválido,4,Regular,,MXN
+PED-00038,2024-10-04,user38@empresa.com,170.82,electronica,Este,+52 55 6485 5164,2,Buen servicio,,MXN
+PED-00039,2024-06-18,user39@empresa.com,36.18,Rop,NORTE,teléfono inválido,,Regular,,MXN
+PED-00040,2024-10-12,user40@empresa.com,75.46,Hogar,Norte,+52 55 9252 6041,,Entrega rápida,,MXN
+PED-00041,2024-02-10,user41@empresa.com,41.43,Electrónica,Sur,+52 55 2337 2184,1,N/A,,MXN
+PED-00042,2024-04-14,user42@empresa.com,94.81,Hogra,norte,+52 55 2629 2526,4,Buen servicio,,MXN
+PED-00043,2024-08-14,user43@empresa.com,113.18,Electrónica,NORTE,+52 55 5370 6283,1,Producto dañado,,MXN
+PED-00044,2024-07-28,user44@empresa.com,244.46,Hogar,norte,+52 55 2993 1869,3,Excelente,,MXN
+PED-00045,2024-09-08,user45@empresa.com,98.46,Rop,Norte,+52 55 1602 1690,,Buen servicio,,MXN
+PED-00046,2024-05-16,user46@empresa.com,85.62,Hogar,Norte,+52 55 7864 8240,5,Entrega rápida,,MXN
+PED-00047,2024-02-15,user47@empresa.com,22.0,Alimentos,Sur,+52 55 8786 9024,3,Excelente,,MXN
+PED-00048,2024-05-24,user48@empresa.com,22.44,Rop,Oeste,+52 55 5027 3912,1,N/A,,MXN
+PED-00049,2024-10-25,user49@empresa.com,53.67,Electrónica,Norte,+52 55 5744 2873,2,,,MXN
+PED-00050,2024-12-28,user50@empresa.com,25.49,electronica,NORTE,+52 55 3817 9636,,Entrega rápida,,MXN
+PED-00051,2024-12-13,user51@empresa.com,180.35,Electrónica,Oeste,+52 55 6307 9933,5,null,,MXN
+PED-00052,2024-09-15,user52@empresa.com,,Electrónica,Este,+52 55 6738 6668,3,,,MXN
+PED-00053,2024-01-25,user53@empresa.com,31.73,Rop,norte,+52 55 8697 9033,,Excelente,,MXN
+PED-00054,2024-07-09,user54@empresa.com,2.98,Alimentos,Oeste,+52 55 8352 7915,4,Regular,,MXN
+PED-00055,2024-08-01,user55@empresa.com,140.18,Electrónica,norte,+52 55 9326 4644,2,Entrega rápida,,MXN
+PED-00056,2024-12-08,user56@empresa.com,90.97,ELECTRONICA,Oeste,+52 55 9003 4278,3,Excelente,,MXN
+PED-00057,2024-08-11,user57@empresa.com,,Electrónica ,Este,+52 55 4074 9312,4,Regular,,MXN
+PED-00058,2024-03-17,user58@empresa.com,39.81,Electrónica ,Norte,+52 55 6103 1644,1,N/A,,MXN
+PED-00059,2024-08-03,user59@empresa.com,33.65,Electrónica,Este,+52 55 3068 1241,4,N/A,,MXN
+PED-00060,2024-03-01,user60@empresa.com,974.99,electronica,Norte,+52 55 3668 1802,3,Buen servicio,,MXN
+PED-00061,2024-11-05,user61@empresa.com,53.14,Hogra,Norte,+52 55 1195 3187,3,null,,MXN
+PED-00062,2024-10-07,user62@empresa.com,19.08,Hogra,norte,+52 55 5841 4606,1,Buen servicio,,MXN
+PED-00063,2024-10-09,user63@empresa.com,57.12,Rop,NORTE,+52 55 1060 4927,4,null,,MXN
+PED-00064,2024-12-07,user64@empresa.com,,Electrónica ,Este,+52 55 3591 9758,4,Entrega rápida,,MXN
+PED-00065,2024-09-08,user65@empresa.com,16.41,Electrónica,Oeste,+52 55 7121 2200,1,Producto dañado,,MXN
+PED-00066,2024-12-02,user66@empresa.com,38.97,Hogra,Este,+52 55 3854 8024,4,sin información,,MXN
+PED-00067,2024-01-16,user67@empresa.com,27.51,Electrónica,norte,+52 55 1136 2029,,,,MXN
+PED-00068,2024-07-23,user68@empresa.com,108.54,Rop,Norte,+52 55 3594 8206,1,Regular,,MXN
+PED-00069,2024-08-05,null,292.72,Electrónica ,norte,+52 55 1086 7219,2,,,MXN
+PED-00070,2024-03-12,user70@empresa.com,,Hogar,Sur,+52 55 7968 3773,3,N/A,,MXN
+PED-00071,2024-08-22,user71@empresa.com,165.6,ELECTRONICA,Sur,+52 55 2700 3700,2,null,,MXN
+PED-00072,2024-11-03,user72@empresa.com,480.28,ELECTRONICA,Oeste,+52 55 2647 7038,,Regular,,MXN
+PED-00073,2024-01-03,user73@empresa.com,83.89,Hogra,norte,+52 55 4687 1596,,N/A,,MXN
+PED-00074,2024-05-15,user74@empresa.com,27.24,ELECTRONICA,Oeste,+52 55 9837 5757,5,Regular,,MXN
+PED-00075,2024-03-01,user75@empresa.com,201.71,Hogar,Oeste,+52 55 9912 5733,5,Buen servicio,,MXN
+PED-00076,2024-05-26,user76@empresa.com,62.64,Electrónica,Sur,+52 55 8081 9690,5,N/A,,MXN
+PED-00077,2024-07-14,N/A,170.75,Rop,Oeste,+52 55 2673 9306,1,Buen servicio,,MXN
+PED-00078,2024-07-27,user78@empresa.com,88.38,Hogar,Sur,+52 55 8178 3294,4,Buen servicio,,MXN
+PED-00079,2024-09-15,user79@empresa.com,749.2,Rop,Norte,+52 55 1146 4453,,Regular,,MXN
+PED-00080,2024-10-10,user80@empresa.com,15.83,Rop,norte,+52 55 8751 6628,2,Excelente,,MXN
+PED-00081,2024-12-13,user81@empresa.com,28.93,Electrónica ,Oeste,+52 55 4360 4005,2,,,MXN
+PED-00082,2024-03-07,user82@empresa.com,1916.03,Electrónica,Sur,+52 55 3242 7318,2,N/A,,MXN
+PED-00083,2024-01-20,user83@empresa.com,48.62,ELECTRONICA,Este,+52 55 2948 6618,2,sin información,,MXN
+PED-00084,2024-04-05,user84@empresa.com,14.11,Electrónica ,Oeste,+52 55 2920 5188,5,Excelente,,MXN
+PED-00085,2024-07-07,user85@empresa.com,107.46,Rop,NORTE,+52 55 1204 6552,2,,,MXN
+PED-00086,2024-11-04,user86@empresa.com,202.2,Hogra,Norte,+52 55 5390 3687,4,N/A,,MXN
+PED-00087,2024-07-27,user87@empresa.com,47.8,ELECTRONICA,Norte,+52 55 7160 6388,5,null,,MXN
+PED-00088,2024-03-22,user88@empresa.com,5.83,ELECTRONICA,Este,+52 55 6126 1816,2,,,MXN
+PED-00089,2024-12-02,sin dato,18.51,Electrónica,Sur,+52 55 1192 2776,1,sin información,,MXN
+PED-00090,2024-10-13,user90@empresa.com,8.38,Alimentos,Oeste,+52 55 7314 9442,3,Entrega rápida,,MXN
+PED-00091,2024-09-21,user91@empresa.com,603.1,Ropa,Sur,+52 55 8374 4700,3,Buen servicio,,MXN
+PED-00092,2024-06-28,user92@empresa.com,7.69,Ropa,Norte,+52 55 4893 7811,3,Entrega rápida,,MXN
+PED-00093,2024-12-12,user93@empresa.com,27.46,Ropa,Sur,+52 55 4904 8260,5,Excelente,,MXN
+PED-00094,2024-12-20,user94@empresa.com,103.49,Alimentos,Norte,+52 55 7773 4816,2,Buen servicio,,MXN
+PED-00095,2024-11-26,user95@empresa.com,12.13,Electrónica,Sur,+52 55 5434 1658,,N/A,,MXN
+PED-00096,2024-07-28,user96@empresa.com,88.41,Alimentos,Este,+52 55 5994 5234,,Excelente,,MXN
+PED-00097,2024-09-07,user97@empresa.com,23.98,Ropa,norte,teléfono inválido,,sin información,,MXN
+PED-00098,2024-01-01,user98@empresa.com,80.52,Electrónica ,Este,+52 55 7801 9575,5,Regular,,MXN
+PED-00099,2024-09-27,user99@empresa.com,38.48,Hogar,Este,+52 55 4719 3581,4,N/A,,MXN
+PED-00100,2024-09-20,user100@empresa.com,45.24,Rop,norte,+52 55 7328 6991,1,,,MXN
+PED-00101,2024-09-03,user101@empresa.com,195.37,Alimentos,norte,+52 55 9923 5780,1,Regular,,MXN
+PED-00102,2024-07-06,user102@empresa.com,13.64,Electrónica,Oeste,+52 55 7476 3604,3,Excelente,,MXN
+PED-00103,2024-08-27,user103@empresa.com,80.08,Electrónica,Oeste,+52 55 1531 7079,3,,,MXN
+PED-00104,2024-09-05,user104@empresa.com,143.85,Hogar,Este,+52 55 1002 9397,,sin información,,MXN
+PED-00105,2024-01-19,user105@empresa.com,12.24,Hogra,Este,+52 55 6626 8739,,Entrega rápida,,MXN
+PED-00106,2024-10-12,user106@empresa.com,8.44,ELECTRONICA,Norte,+52 55 7239 9026,3,,,MXN
+PED-00107,2024-08-15,user107@empresa.com,39.37,Ropa,Norte,+52 55 1897 1670,2,Entrega rápida,,MXN
+PED-00108,2024-11-22,user108@empresa.com,4.42,Hogra,Oeste,+52 55 7460 6167,4,Buen servicio,,MXN
+PED-00109,2024-08-09,user109@empresa.com,74.07,Ropa,NORTE,teléfono inválido,4,null,,MXN
+PED-00110,2024-04-17,user110@empresa.com,118.95,Hogar,NORTE,+52 55 1249 7457,4,Producto dañado,,MXN
+PED-00111,2024-01-26,user111@empresa.com,10.27,Ropa,Oeste,+52 55 3854 4792,4,N/A,,MXN
+PED-00112,2024-04-12,user112@empresa.com,150.88,Hogar,Norte,teléfono inválido,3,Producto dañado,,MXN
+PED-00113,2024-07-02,user113@empresa.com,236.75,electronica,Norte,+52 55 9235 4612,1,Buen servicio,,MXN
+PED-00114,2024-03-17,user114@empresa.com,84.37,Hogra,NORTE,+52 55 4163 3942,3,,,MXN
+PED-00115,2024-05-17,user115@empresa.com,259.43,Hogra,Sur,+52 55 3972 1990,4,Buen servicio,,MXN
+PED-00116,2024-08-17,user116@empresa.com,36.88,ELECTRONICA,Sur,+52 55 9995 1489,3,Producto dañado,,MXN
+PED-00117,2024-11-17,user117@empresa.com,28.19,Hogar,Norte,+52 55 4645 8081,4,Producto dañado,,MXN
+PED-00118,2024-02-02,user118@empresa.com,46.66,Alimentos,Sur,+52 55 4516 4340,5,N/A,,MXN
+PED-00119,2024-12-22,user119@empresa.com,15.77,electronica,norte,+52 55 3575 1615,,Regular,,MXN
+PED-00120,2024-07-05,user120@empresa.com,26.94,Electrónica ,Oeste,+52 55 8404 1954,1,Buen servicio,,MXN
+PED-00121,2024-01-01,user121@empresa.com,55.21,Ropa,Oeste,+52 55 7859 9841,5,null,,MXN
+PED-00122,2024-03-02,user122@empresa.com,64.54,electronica,Norte,+52 55 4278 6455,2,Buen servicio,,MXN
+PED-00123,2024-05-12,user123@empresa.com,93.98,Hogar,Este,teléfono inválido,3,sin información,,MXN
+PED-00124,2024-10-06,user124@empresa.com,4.39,Rop,NORTE,+52 55 7539 1370,2,Excelente,,MXN
+PED-00125,2024-07-04,user125@empresa.com,1854.38,Ropa,Norte,+52 55 8485 1383,3,Excelente,,MXN
+PED-00126,2024-07-11,user126@empresa.com,17.7,Electrónica,Sur,+52 55 5334 5290,,Producto dañado,,MXN
+PED-00127,2024-08-27,user127@empresa.com,118.29,Hogra,NORTE,+52 55 7204 7111,5,Excelente,,MXN
+PED-00128,2024-01-06,user128@empresa.com,76.09,Hogar,Este,+52 55 1922 3915,,Entrega rápida,,MXN
+PED-00129,2024-08-05,null,25.01,Electrónica,Sur,+52 55 4046 2230,4,null,,MXN
+PED-00130,2024-04-02,user130@empresa.com,105.28,ELECTRONICA,norte,+52 55 5933 4940,,Excelente,,MXN
+PED-00131,2024-06-22,user131@empresa.com,18.16,Electrónica ,Sur,+52 55 1160 9960,,,,MXN
+PED-00132,2024-11-16,user132@empresa.com,52.61,Electrónica ,norte,+52 55 3581 2093,4,Entrega rápida,,MXN
+PED-00133,2024-01-09,user133@empresa.com,604.31,Electrónica,NORTE,+52 55 9799 6710,3,Entrega rápida,,MXN
+PED-00134,2024-12-27,user134@empresa.com,31.86,Hogra,norte,+52 55 4191 2837,4,Buen servicio,,MXN
+PED-00135,2024-06-16,user135@empresa.com,59.2,ELECTRONICA,NORTE,+52 55 3103 1365,5,Producto dañado,,MXN
+PED-00136,2024-03-20,user136@empresa.com,15.0,Rop,NORTE,+52 55 9092 5172,,N/A,,MXN
+PED-00137,2024-12-27,user137@empresa.com,121.76,Hogra,NORTE,+52 55 3378 2205,4,N/A,,MXN
+PED-00138,2024-04-19,user138@empresa.com,21.63,electronica,NORTE,+52 55 6669 3735,,sin información,,MXN
+PED-00139,2024-10-03,user139@empresa.com,77.94,Electrónica ,NORTE,+52 55 9490 1956,5,null,,MXN
+PED-00140,2024-03-20,user140@empresa.com,182.39,electronica,Sur,+52 55 7623 2474,2,Buen servicio,,MXN
+PED-00141,2024-07-20,user141@empresa.com,40.33,Ropa,NORTE,+52 55 7396 3828,5,N/A,,MXN
+PED-00142,2024-09-01,user142@empresa.com,107.48,Alimentos,Sur,+52 55 3964 5594,1,Producto dañado,,MXN
+PED-00143,2024-08-07,user143@empresa.com,83.65,Hogar,NORTE,+52 55 7644 3850,1,N/A,,MXN
+PED-00144,2024-02-08,user144@empresa.com,191.77,ELECTRONICA,norte,teléfono inválido,1,,,MXN
+PED-00145,2024-01-11,user145@empresa.com,108.2,Hogra,NORTE,teléfono inválido,,Entrega rápida,,MXN
+PED-00146,2024-12-25,user146@empresa.com,256.65,Electrónica ,Este,+52 55 4504 1991,3,N/A,,MXN
+PED-00147,2024-09-18,user147@empresa.com,39.9,electronica,NORTE,+52 55 4839 2258,3,Buen servicio,,MXN
+PED-00148,2024-07-10,user148@empresa.com,11.78,Ropa,NORTE,teléfono inválido,3,Excelente,,MXN
+PED-00149,2024-03-07,user149@empresa.com,7.6,Hogar,norte,+52 55 5804 1067,,Excelente,,MXN
+PED-00150,2024-12-16,user150@empresa.com,8.47,Hogar,Oeste,+52 55 5478 9210,5,Excelente,,MXN
+PED-00151,2024-10-16,user151@empresa.com,37.93,Hogra,norte,+52 55 1572 8082,3,Buen servicio,,MXN
+PED-00152,2024-09-20,user152@empresa.com,66.93,ELECTRONICA,Este,+52 55 3258 7039,2,null,,MXN
+PED-00153,2024-12-17,user153@empresa.com,23.57,Rop,Oeste,+52 55 7838 3587,1,Excelente,,MXN
+PED-00154,2024-02-01,user154@empresa.com,3.67,Hogra,Norte,+52 55 2338 5996,5,sin información,,MXN
+PED-00155,2024-12-05,user155@empresa.com,24.06,electronica,Norte,+52 55 3827 6232,1,Producto dañado,,MXN
+PED-00156,2024-05-27,user156@empresa.com,31.66,Alimentos,Este,+52 55 8845 5383,3,Entrega rápida,,MXN
+PED-00157,2024-07-09,user157@empresa.com,53.31,Electrónica,norte,+52 55 3961 4226,5,Excelente,,MXN
+PED-00158,2024-09-03,sin dato,309.35,Rop,Sur,+52 55 8031 4716,4,Buen servicio,,MXN
+PED-00159,2024-03-16,user159@empresa.com,6.12,ELECTRONICA,Este,teléfono inválido,2,Excelente,,MXN
+PED-00160,2024-03-20,user160@empresa.com,123.47,Ropa,Oeste,+52 55 3904 3505,3,N/A,,MXN
+PED-00161,2024-08-22,user161@empresa.com,108.91,Rop,Oeste,+52 55 7982 8427,3,Excelente,,MXN
+PED-00162,2024-08-01,user162@empresa.com,40.32,Electrónica ,NORTE,+52 55 1615 8086,2,,,MXN
+PED-00163,2024-08-20,null,87.4,ELECTRONICA,Norte,+52 55 5749 4505,2,,,MXN
+PED-00164,2024-11-17,user164@empresa.com,43.52,Alimentos,Oeste,teléfono inválido,4,Excelente,,MXN
+PED-00165,2024-08-04,user165@empresa.com,106.03,Electrónica ,Este,+52 55 9566 8226,3,Entrega rápida,,MXN
+PED-00166,2024-06-08,,19.21,Rop,Oeste,+52 55 5875 2319,,Buen servicio,,MXN
+PED-00167,2024-04-03,user167@empresa.com,16.76,Electrónica,Este,+52 55 8389 3690,3,sin información,,MXN
+PED-00168,2024-09-03,user168@empresa.com,5.5,Electrónica,Sur,+52 55 9281 6213,1,sin información,,MXN
+PED-00169,2024-09-18,user169@empresa.com,87.9,Alimentos,NORTE,+52 55 2857 9996,5,Excelente,,MXN
+PED-00170,2024-02-02,user170@empresa.com,26.47,Hogar,Norte,+52 55 4875 8605,5,Excelente,,MXN
+PED-00171,2024-06-03,user171@empresa.com,8.13,Ropa,Oeste,+52 55 9135 7055,1,,,MXN
+PED-00172,2024-09-04,user172@empresa.com,17.06,Hogar,Este,+52 55 8175 8129,5,Entrega rápida,,MXN
+PED-00173,2024-01-04,user173@empresa.com,105.77,Electrónica,norte,teléfono inválido,2,Excelente,,MXN
+PED-00174,2024-01-14,user174@empresa.com,66.19,Electrónica,Norte,+52 55 7582 6866,5,sin información,,MXN
+PED-00175,2024-05-16,user175@empresa.com,17.73,electronica,Sur,+52 55 8212 2262,5,Buen servicio,,MXN
+PED-00176,2024-04-24,user176@empresa.com,292.04,Electrónica ,Este,+52 55 8382 7231,1,null,,MXN
+PED-00177,2024-08-07,user177@empresa.com,49.89,Rop,NORTE,+52 55 3259 2257,4,N/A,,MXN
+PED-00178,2024-03-17,user178@empresa.com,,Ropa,NORTE,+52 55 4294 7774,5,Excelente,,MXN
+PED-00179,2024-01-16,user179@empresa.com,63.23,Alimentos,Sur,+52 55 2230 4805,,Excelente,,MXN
+PED-00180,2024-12-27,N/A,104.79,Rop,Sur,+52 55 6750 4856,5,Entrega rápida,,MXN
+PED-00181,2024-03-22,user181@empresa.com,23.51,electronica,NORTE,+52 55 7034 5589,4,null,,MXN
+PED-00182,2024-07-22,user182@empresa.com,24.64,Electrónica,Oeste,+52 55 7065 2094,1,Producto dañado,,MXN
+PED-00183,2024-06-06,user183@empresa.com,12.27,Alimentos,Oeste,+52 55 9954 5145,4,Buen servicio,,MXN
+PED-00184,2024-03-22,user184@empresa.com,23.77,Electrónica,Este,+52 55 7628 4155,1,Buen servicio,,MXN
+PED-00185,2024-08-27,user185@empresa.com,38.32,Ropa,norte,+52 55 9775 6415,2,,,MXN
+PED-00186,2024-11-02,user186@empresa.com,244.03,Electrónica ,Este,teléfono inválido,1,,,MXN
+PED-00187,2024-05-01,user187@empresa.com,20.04,Rop,norte,+52 55 7026 9301,2,Regular,,MXN
+PED-00188,2024-12-15,user188@empresa.com,716.36,Rop,Sur,+52 55 1861 7711,2,sin información,,MXN
+PED-00189,2024-01-05,user189@empresa.com,116.81,Hogar,Norte,+52 55 5134 8587,1,Buen servicio,,MXN
+PED-00190,2024-12-16,user190@empresa.com,89.71,Alimentos,Este,+52 55 5131 3148,,Entrega rápida,,MXN
+PED-00191,2024-03-04,user191@empresa.com,57.55,electronica,Este,+52 55 6457 7079,3,Entrega rápida,,MXN
+PED-00192,2024-03-17,,45.77,Hogar,norte,teléfono inválido,1,null,,MXN
+PED-00193,2024-01-12,user193@empresa.com,27.97,Ropa,Sur,+52 55 8542 3011,5,Entrega rápida,,MXN
+PED-00194,2024-12-14,user194@empresa.com,10.55,electronica,Sur,+52 55 8357 2289,,Excelente,,MXN
+PED-00195,2024-05-06,user195@empresa.com,20.81,Electrónica ,norte,+52 55 7381 8522,,sin información,,MXN
+PED-00196,2024-03-28,user196@empresa.com,390.31,Electrónica ,Sur,teléfono inválido,5,Excelente,,MXN
+PED-00197,2024-09-05,user197@empresa.com,108.07,Electrónica ,NORTE,+52 55 6462 4216,3,N/A,,MXN
+PED-00198,2024-08-17,user198@empresa.com,385.32,Electrónica ,Oeste,+52 55 3782 8657,,Buen servicio,,MXN
+PED-00199,2024-05-03,user199@empresa.com,27.17,Hogar,NORTE,+52 55 7324 7327,2,sin información,,MXN
+PED-00200,2024-12-01,user200@empresa.com,16.16,ELECTRONICA,Norte,+52 55 6208 1687,3,Producto dañado,,MXN
+PED-00201,2024-04-21,-,56.88,electronica,Este,+52 55 6067 9080,5,Producto dañado,,MXN
+PED-00202,2024-07-01,user202@empresa.com,21.67,Alimentos,Norte,+52 55 7094 7974,3,N/A,,MXN
+PED-00203,2024-03-18,user203@empresa.com,72.28,Ropa,Este,+52 55 8692 4103,1,sin información,,MXN
+PED-00204,2024-09-10,user204@empresa.com,8.44,Hogra,Oeste,+52 55 8124 6201,3,Regular,,MXN
+PED-00205,2024-06-26,user205@empresa.com,4.99,Electrónica,Sur,+52 55 1446 4915,2,Regular,,MXN
+PED-00206,2024-03-08,user206@empresa.com,85.53,Alimentos,NORTE,+52 55 2234 7587,1,Regular,,MXN
+PED-00207,2024-08-18,user207@empresa.com,406.3,Electrónica,norte,+52 55 1226 5143,4,Buen servicio,,MXN
+PED-00208,2024-06-23,user208@empresa.com,90.27,electronica,NORTE,+52 55 6558 1186,5,Buen servicio,,MXN
+PED-00209,2024-02-27,user209@empresa.com,106.7,Alimentos,Oeste,+52 55 3535 2932,5,Regular,,MXN
+PED-00210,2024-10-02,user210@empresa.com,59.81,Electrónica ,Norte,+52 55 3032 2252,3,Producto dañado,,MXN
+PED-00211,2024-10-17,user211@empresa.com,66.9,Electrónica ,norte,+52 55 2881 1269,,sin información,,MXN
+PED-00212,2024-08-01,user212@empresa.com,10.01,Hogra,Sur,+52 55 7139 2574,1,Entrega rápida,,MXN
+PED-00213,2024-09-11,user213@empresa.com,22.59,Electrónica,Oeste,+52 55 2695 4258,4,sin información,,MXN
+PED-00214,2024-06-16,user214@empresa.com,240.64,Ropa,norte,+52 55 2445 7263,1,Regular,,MXN
+PED-00215,2024-07-10,user215@empresa.com,14.72,electronica,Oeste,+52 55 6570 8579,5,sin información,,MXN
+PED-00216,2024-07-26,user216@empresa.com,37.35,Electrónica ,Oeste,+52 55 7901 3785,1,null,,MXN
+PED-00217,2024-03-18,user217@empresa.com,234.09,ELECTRONICA,Sur,+52 55 7855 3294,4,Buen servicio,,MXN
+PED-00218,2024-09-24,user218@empresa.com,64.72,Hogar,Este,+52 55 5482 1698,,Buen servicio,,MXN
+PED-00219,2024-12-26,user219@empresa.com,68.75,Hogar,norte,+52 55 6918 1348,3,Producto dañado,,MXN
+PED-00220,2024-07-25,user220@empresa.com,37.68,Ropa,Sur,+52 55 8869 1307,2,Entrega rápida,,MXN
+PED-00221,2024-04-13,user221@empresa.com,127.71,Hogar,Oeste,+52 55 5820 4558,1,Regular,,MXN
+PED-00222,2024-04-01,user222@empresa.com,,Electrónica,Sur,+52 55 7531 5620,2,Producto dañado,,MXN
+PED-00223,2024-08-14,user223@empresa.com,172.09,Electrónica ,Este,+52 55 3985 9112,5,Producto dañado,,MXN
+PED-00224,2024-12-19,user224@empresa.com,23.45,Electrónica ,NORTE,+52 55 1336 3979,3,Entrega rápida,,MXN
+PED-00225,2024-07-15,user225@empresa.com,40.99,ELECTRONICA,norte,+52 55 1910 2996,3,Excelente,,MXN
+PED-00226,2024-12-02,user226@empresa.com,19.73,Alimentos,Este,teléfono inválido,1,Regular,,MXN
+PED-00227,2024-02-23,user227@empresa.com,7.99,Hogar,Norte,+52 55 7129 6850,,Buen servicio,,MXN
+PED-00228,2024-06-19,user228@empresa.com,148.95,Electrónica,norte,teléfono inválido,3,Entrega rápida,,MXN
+PED-00229,2024-09-26,,56.69,Rop,Este,+52 55 1314 2134,1,null,,MXN
+PED-00230,2024-06-26,user230@empresa.com,34.4,Hogar,Oeste,+52 55 9102 9347,1,Producto dañado,,MXN
+PED-00231,2024-10-22,user231@empresa.com,95.27,Ropa,norte,+52 55 4343 1886,2,Entrega rápida,,MXN
+PED-00232,2024-01-20,user232@empresa.com,32.26,Alimentos,norte,+52 55 1721 8678,3,Buen servicio,,MXN
+PED-00233,2024-10-06,user233@empresa.com,221.31,Hogar,Sur,+52 55 1870 7751,1,sin información,,MXN
+PED-00234,2024-06-11,sin dato,108.0,Electrónica,Oeste,+52 55 2117 3828,2,Buen servicio,,MXN
+PED-00235,2024-12-05,user235@empresa.com,112.11,Hogar,Norte,+52 55 2647 7992,4,null,,MXN
+PED-00236,2024-01-08,user236@empresa.com,13.12,Ropa,NORTE,+52 55 7771 1142,2,Entrega rápida,,MXN
+PED-00237,2024-05-28,user237@empresa.com,35.74,Rop,Este,+52 55 3761 4435,2,null,,MXN
+PED-00238,2024-12-12,user238@empresa.com,58.01,electronica,Sur,+52 55 8069 5512,1,Regular,,MXN
+PED-00239,2024-05-07,user239@empresa.com,66.99,Hogra,Este,+52 55 3696 2717,5,Regular,,MXN
+PED-00240,2024-04-06,user240@empresa.com,1051.37,Rop,Norte,+52 55 3786 4791,5,sin información,,MXN
+PED-00241,2024-04-15,user241@empresa.com,38.09,Hogar,Norte,+52 55 2806 2504,,Producto dañado,,MXN
+PED-00242,2024-03-23,user242@empresa.com,2.64,Electrónica ,norte,+52 55 6048 9263,5,Excelente,,MXN
+PED-00243,2024-08-20,user243@empresa.com,58.95,ELECTRONICA,Norte,+52 55 4303 4113,2,,,MXN
+PED-00244,2024-02-28,user244@empresa.com,100.41,Electrónica ,Este,+52 55 8850 7416,,null,,MXN
+PED-00245,2024-10-19,user245@empresa.com,58.25,Rop,Oeste,+52 55 9924 4924,1,sin información,,MXN
+PED-00246,2024-01-24,user246@empresa.com,1.71,Electrónica ,Oeste,+52 55 5485 9100,3,Buen servicio,,MXN
+PED-00247,2024-03-28,user247@empresa.com,77.63,Electrónica,norte,+52 55 9690 5917,2,Entrega rápida,,MXN
+PED-00248,2024-10-23,user248@empresa.com,104.39,Electrónica ,NORTE,teléfono inválido,2,Producto dañado,,MXN
+PED-00249,2024-10-05,user249@empresa.com,11.72,Alimentos,Este,+52 55 7999 8282,,,,MXN
+PED-00250,2024-10-21,user250@empresa.com,23.89,electronica,Este,+52 55 2874 5763,1,Entrega rápida,,MXN
+PED-00251,2024-07-09,user251@empresa.com,50.64,Hogar,Norte,+52 55 2051 8538,4,Buen servicio,,MXN
+PED-00252,2024-12-21,user252@empresa.com,27.76,Electrónica ,Este,+52 55 7320 3105,2,,,MXN
+PED-00253,2024-01-26,user253@empresa.com,33.34,Ropa,Sur,+52 55 8737 4359,4,Buen servicio,,MXN
+PED-00254,2024-10-01,user254@empresa.com,78.49,electronica,NORTE,+52 55 2251 6366,4,Buen servicio,,MXN
+PED-00255,2024-02-22,user255@empresa.com,25.7,electronica,Norte,+52 55 7226 6305,5,Buen servicio,,MXN
+PED-00256,2024-09-08,user256@empresa.com,8.66,Electrónica ,Sur,+52 55 6869 9039,1,Regular,,MXN
+PED-00257,2024-05-01,user257@empresa.com,163.19,electronica,norte,+52 55 5891 5992,4,,,MXN
+PED-00258,2024-07-05,user258@empresa.com,15.6,ELECTRONICA,Oeste,teléfono inválido,1,Buen servicio,,MXN
+PED-00259,2024-06-23,user259@empresa.com,42.49,Electrónica ,norte,+52 55 7603 5567,5,Excelente,,MXN
+PED-00260,2024-03-12,user260@empresa.com,29.71,Electrónica,Oeste,+52 55 5005 1183,1,,,MXN
+PED-00261,2024-10-16,user261@empresa.com,13.39,Rop,norte,+52 55 7615 7797,2,Regular,,MXN
+PED-00262,2024-03-05,user262@empresa.com,156.71,Alimentos,Este,+52 55 8678 6698,4,null,,MXN
+PED-00263,2024-06-25,user263@empresa.com,,Hogra,Sur,+52 55 7653 2096,1,null,,MXN
+PED-00264,2024-12-05,user264@empresa.com,136.27,electronica,Oeste,+52 55 9002 5247,3,Producto dañado,,MXN
+PED-00265,2024-01-14,user265@empresa.com,28.35,Electrónica,Norte,+52 55 4354 1270,1,N/A,,MXN
+PED-00266,2024-04-05,user266@empresa.com,87.37,Hogar,Sur,+52 55 7305 3398,4,Excelente,,MXN
+PED-00267,2024-12-16,user267@empresa.com,53.6,Hogar,Norte,+52 55 8299 5182,5,null,,MXN
+PED-00268,2024-10-26,user268@empresa.com,109.42,Alimentos,Sur,+52 55 7511 1128,5,Regular,,MXN
+PED-00269,2024-05-07,user269@empresa.com,229.5,electronica,Sur,+52 55 5765 4970,4,N/A,,MXN
+PED-00270,2024-04-01,sin dato,45.14,ELECTRONICA,norte,+52 55 6552 1627,2,Buen servicio,,MXN
+PED-00271,2024-05-23,user271@empresa.com,32.07,Alimentos,Oeste,+52 55 7589 3044,2,Buen servicio,,MXN
+PED-00272,2024-10-10,user272@empresa.com,18.88,electronica,Oeste,+52 55 3341 6884,5,sin información,,MXN
+PED-00273,2024-06-05,user273@empresa.com,10.52,Electrónica,Sur,+52 55 1249 3925,5,N/A,,MXN
+PED-00274,2024-04-02,user274@empresa.com,7.88,Rop,Este,+52 55 8192 3672,4,Regular,,MXN
+PED-00275,2024-04-10,user275@empresa.com,24.46,ELECTRONICA,Este,teléfono inválido,2,Excelente,,MXN
+PED-00276,2024-10-19,user276@empresa.com,190.16,Hogra,Norte,+52 55 9662 2987,5,N/A,,MXN
+PED-00277,2024-10-01,user277@empresa.com,123.16,Hogar,Norte,+52 55 5059 3773,2,null,,MXN
+PED-00278,2024-08-05,user278@empresa.com,,Ropa,norte,+52 55 9383 8409,5,Excelente,,MXN
+PED-00279,2024-04-16,user279@empresa.com,30.4,Electrónica,Sur,+52 55 8347 2008,1,sin información,,MXN
+PED-00280,2024-08-16,user280@empresa.com,296.69,Hogar,Norte,teléfono inválido,3,Excelente,,MXN
+PED-00281,2024-07-02,user281@empresa.com,234.48,Electrónica ,Norte,+52 55 5287 3052,,Buen servicio,,MXN
+PED-00282,2024-01-28,user282@empresa.com,25.32,Ropa,NORTE,teléfono inválido,1,sin información,,MXN
+PED-00283,2024-11-20,user283@empresa.com,66.82,Hogar,Sur,teléfono inválido,,null,,MXN
+PED-00284,2024-08-12,N/A,60.73,Alimentos,norte,+52 55 5538 2260,5,,,MXN
+PED-00285,2024-02-03,user285@empresa.com,431.19,ELECTRONICA,Norte,+52 55 1584 8616,3,null,,MXN
+PED-00286,2024-12-01,user286@empresa.com,,Hogar,norte,+52 55 3866 6898,3,null,,MXN
+PED-00287,2024-01-19,user287@empresa.com,35.22,Hogra,Oeste,+52 55 5939 5006,5,Entrega rápida,,MXN
+PED-00288,2024-11-05,user288@empresa.com,68.14,Rop,norte,+52 55 1890 7078,5,Buen servicio,,MXN
+PED-00289,2024-12-03,user289@empresa.com,,Alimentos,Este,+52 55 8036 9923,2,Buen servicio,,MXN
+PED-00290,2024-01-01,user290@empresa.com,20.84,Electrónica,Este,+52 55 3504 9806,5,Regular,,MXN
+PED-00291,2024-08-10,user291@empresa.com,259.45,Electrónica,norte,+52 55 7100 2719,4,Entrega rápida,,MXN
+PED-00292,2024-11-12,user292@empresa.com,123.51,Electrónica,Este,+52 55 7686 2587,5,Producto dañado,,MXN
+PED-00293,2024-12-14,user293@empresa.com,219.07,Electrónica,Oeste,teléfono inválido,4,null,,MXN
+PED-00294,2024-02-19,null,76.63,Rop,Sur,+52 55 9469 5647,5,Regular,,MXN
+PED-00295,2024-02-03,user295@empresa.com,23.35,Hogar,Este,+52 55 3432 4904,2,Entrega rápida,,MXN
+PED-00296,2024-07-17,user296@empresa.com,113.13,electronica,Este,+52 55 7837 2449,4,sin información,,MXN
+PED-00297,2024-10-08,user297@empresa.com,263.33,Hogar,norte,+52 55 5117 9869,1,Excelente,,MXN
+PED-00298,2024-10-10,-,76.51,Electrónica ,Oeste,+52 55 7845 4758,4,Excelente,,MXN
+PED-00299,2024-10-02,user299@empresa.com,17.98,ELECTRONICA,Sur,teléfono inválido,2,Buen servicio,,MXN
+PED-00300,2024-03-09,user300@empresa.com,27.11,Ropa,norte,+52 55 9848 1165,,Entrega rápida,,MXN
+PED-00301,2024-07-04,user301@empresa.com,57.19,electronica,norte,+52 55 1589 5524,4,null,,MXN
+PED-00302,2024-10-21,-,313.17,electronica,NORTE,+52 55 7509 8693,5,null,,MXN
+PED-00303,2024-02-13,user303@empresa.com,473.01,Hogar,Oeste,+52 55 4580 8962,5,,,MXN
+PED-00304,2024-11-24,user304@empresa.com,19.6,electronica,Sur,+52 55 3462 2015,,Excelente,,MXN
+PED-00305,2024-04-25,user305@empresa.com,84.02,Electrónica ,Oeste,+52 55 8984 1406,2,Regular,,MXN
+PED-00306,2024-05-25,user306@empresa.com,26.74,Ropa,Sur,+52 55 7169 8982,3,Entrega rápida,,MXN
+PED-00307,2024-04-10,user307@empresa.com,11.73,Hogra,Oeste,+52 55 5485 9901,5,null,,MXN
+PED-00308,2024-05-09,user308@empresa.com,109.44,Rop,norte,+52 55 7289 7928,1,,,MXN
+PED-00309,2024-08-03,user309@empresa.com,65.19,Hogar,norte,+52 55 8566 5670,2,Entrega rápida,,MXN
+PED-00310,2024-01-03,user310@empresa.com,70.29,Rop,Norte,+52 55 2003 8504,4,N/A,,MXN
+PED-00311,2024-04-18,user311@empresa.com,44.81,Hogra,Este,+52 55 2939 2635,4,null,,MXN
+PED-00312,2024-01-07,user312@empresa.com,78.65,Hogar,NORTE,+52 55 7265 2895,1,N/A,,MXN
+PED-00313,2024-08-23,user313@empresa.com,75.12,Hogar,Oeste,+52 55 7524 2073,5,Entrega rápida,,MXN
+PED-00314,2024-05-12,user314@empresa.com,149.17,Ropa,NORTE,+52 55 5895 8331,2,null,,MXN
+PED-00315,2024-01-23,user315@empresa.com,20.57,Rop,Norte,+52 55 2956 8023,1,N/A,,MXN
+PED-00316,2024-07-25,user316@empresa.com,158.59,Electrónica,Este,+52 55 4907 1807,5,Producto dañado,,MXN
+PED-00317,2024-03-09,user317@empresa.com,131.81,Rop,Oeste,+52 55 5827 5524,2,,,MXN
+PED-00318,2024-01-17,user318@empresa.com,80.76,ELECTRONICA,Sur,+52 55 3284 6313,4,Regular,,MXN
+PED-00319,2024-04-16,,56.62,ELECTRONICA,Este,+52 55 1757 5887,2,Excelente,,MXN
+PED-00320,2024-09-22,user320@empresa.com,,Hogar,norte,+52 55 4558 1961,,,,MXN
+PED-00321,2024-11-19,user321@empresa.com,88.2,Electrónica,Norte,+52 55 4575 3418,3,N/A,,MXN
+PED-00322,2024-01-04,user322@empresa.com,24.99,Alimentos,Este,+52 55 6244 8119,2,null,,MXN
+PED-00323,2024-12-09,user323@empresa.com,241.28,Hogra,Este,+52 55 9849 6316,3,Producto dañado,,MXN
+PED-00324,2024-03-12,user324@empresa.com,56.01,Electrónica ,norte,+52 55 1422 7715,2,Producto dañado,,MXN
+PED-00325,2024-09-07,user325@empresa.com,72.89,Electrónica,Oeste,+52 55 8549 7316,3,Excelente,,MXN
+PED-00326,2024-12-14,user326@empresa.com,1238.95,Electrónica ,Sur,+52 55 9069 2657,,Producto dañado,,MXN
+PED-00327,2024-04-19,user327@empresa.com,134.83,Rop,norte,+52 55 7763 4075,4,,,MXN
+PED-00328,2024-10-15,user328@empresa.com,86.26,Rop,Sur,+52 55 3053 9479,5,Producto dañado,,MXN
+PED-00329,2024-05-05,user329@empresa.com,46.24,Electrónica ,Oeste,+52 55 2447 7009,3,Excelente,,MXN
+PED-00330,2024-03-12,sin dato,,Hogra,Este,+52 55 2764 3671,,Producto dañado,,MXN
+PED-00331,2024-09-20,user331@empresa.com,12.56,Electrónica,Sur,+52 55 4177 4722,3,Producto dañado,,MXN
+PED-00332,2024-11-21,user332@empresa.com,256.1,Alimentos,Norte,+52 55 8263 6054,4,sin información,,MXN
+PED-00333,2024-04-21,user333@empresa.com,32.87,Hogar,Norte,+52 55 1808 1725,3,,,MXN
+PED-00334,2024-07-16,user334@empresa.com,129.52,Ropa,norte,+52 55 8701 2216,,N/A,,MXN
+PED-00335,2024-09-07,user335@empresa.com,309.76,Rop,Oeste,+52 55 3806 9970,,Buen servicio,,MXN
+PED-00336,2024-05-10,user336@empresa.com,76.22,ELECTRONICA,norte,+52 55 6634 8483,1,Producto dañado,,MXN
+PED-00337,2024-10-07,user337@empresa.com,,Hogra,norte,+52 55 1224 2814,4,Regular,,MXN
+PED-00338,2024-10-05,user338@empresa.com,312.87,Ropa,NORTE,teléfono inválido,1,Producto dañado,,MXN
+PED-00339,2024-03-23,user339@empresa.com,,Alimentos,norte,+52 55 3931 3971,4,sin información,,MXN
+PED-00340,2024-11-11,user340@empresa.com,9.58,electronica,NORTE,+52 55 8415 3415,3,N/A,,MXN
+PED-00341,2024-02-15,user341@empresa.com,14.48,Hogar,Norte,+52 55 2609 1717,,Regular,,MXN
+PED-00342,2024-12-09,user342@empresa.com,20.48,Rop,Norte,+52 55 7782 2048,1,Regular,,MXN
+PED-00343,2024-10-26,user343@empresa.com,4.42,Hogar,norte,+52 55 9307 8905,3,,,MXN
+PED-00344,2024-12-17,null,7.11,Ropa,Norte,teléfono inválido,,Excelente,,MXN
+PED-00345,2024-06-07,user345@empresa.com,313.76,Hogar,Oeste,+52 55 2620 7548,4,Excelente,,MXN
+PED-00346,2024-08-10,user346@empresa.com,221.38,electronica,NORTE,+52 55 4792 3941,,N/A,,MXN
+PED-00347,2024-09-18,user347@empresa.com,27.45,Ropa,NORTE,+52 55 7197 6450,3,Excelente,,MXN
+PED-00348,2024-11-26,user348@empresa.com,778.29,Rop,norte,+52 55 6874 2553,1,Entrega rápida,,MXN
+PED-00349,2024-02-05,user349@empresa.com,38.27,Electrónica,Norte,+52 55 9378 2881,1,sin información,,MXN
+PED-00350,2024-05-06,user350@empresa.com,509.58,ELECTRONICA,Sur,+52 55 5586 9622,,Buen servicio,,MXN
+PED-00351,2024-03-08,user351@empresa.com,525.28,Ropa,NORTE,+52 55 3345 1075,3,Buen servicio,,MXN
+PED-00352,2024-01-22,user352@empresa.com,25.8,electronica,norte,+52 55 6877 7785,2,,,MXN
+PED-00353,2024-04-17,user353@empresa.com,147.44,Ropa,norte,teléfono inválido,4,,,MXN
+PED-00354,2024-07-25,user354@empresa.com,208.32,Ropa,Oeste,+52 55 5686 2902,4,Buen servicio,,MXN
+PED-00355,2024-04-04,user355@empresa.com,25.05,Rop,Este,+52 55 5670 8143,3,Excelente,,MXN
+PED-00356,2024-06-28,user356@empresa.com,1.96,Ropa,Este,teléfono inválido,2,null,,MXN
+PED-00357,2024-03-12,user357@empresa.com,142.75,ELECTRONICA,NORTE,+52 55 1016 1464,1,Entrega rápida,,MXN
+PED-00358,2024-06-07,user358@empresa.com,19.85,Hogar,Oeste,+52 55 9711 6956,5,Producto dañado,,MXN
+PED-00359,2024-11-10,user359@empresa.com,46.42,Rop,Oeste,teléfono inválido,5,N/A,,MXN
+PED-00360,2024-10-19,user360@empresa.com,68.57,ELECTRONICA,Oeste,+52 55 7543 6901,3,sin información,,MXN
+PED-00361,2024-07-03,user361@empresa.com,109.08,Rop,NORTE,+52 55 7124 8347,2,null,,MXN
+PED-00362,2024-02-28,user362@empresa.com,35.89,ELECTRONICA,Este,+52 55 7940 5290,2,Entrega rápida,,MXN
+PED-00363,2024-10-20,user363@empresa.com,74.74,electronica,Oeste,+52 55 6555 8954,4,Producto dañado,,MXN
+PED-00364,2024-12-08,user364@empresa.com,230.07,ELECTRONICA,Norte,+52 55 4092 5159,1,,,MXN
+PED-00365,2024-09-07,user365@empresa.com,5.34,Electrónica ,norte,+52 55 8478 9476,,Entrega rápida,,MXN
+PED-00366,2024-01-03,user366@empresa.com,10.04,ELECTRONICA,norte,+52 55 5933 5926,2,Buen servicio,,MXN
+PED-00367,2024-12-25,user367@empresa.com,,Electrónica,Sur,+52 55 3965 5319,,Entrega rápida,,MXN
+PED-00368,2024-12-17,null,,Electrónica,Sur,+52 55 8108 4939,5,N/A,,MXN
+PED-00369,2024-09-24,user369@empresa.com,13.34,Hogra,NORTE,+52 55 2810 5566,,Regular,,MXN
+PED-00370,2024-01-06,user370@empresa.com,5.61,Electrónica ,NORTE,+52 55 2909 7364,1,,,MXN
+PED-00371,2024-05-06,user371@empresa.com,66.98,Electrónica ,norte,+52 55 1691 1931,1,sin información,,MXN
+PED-00372,2024-10-12,user372@empresa.com,188.59,Hogar,Norte,+52 55 7382 4406,,sin información,,MXN
+PED-00373,2024-05-16,user373@empresa.com,43.21,Electrónica ,Este,+52 55 2032 2311,3,Entrega rápida,,MXN
+PED-00374,2024-06-21,user374@empresa.com,43.36,Hogar,Este,+52 55 2873 7781,2,Regular,,MXN
+PED-00375,2024-11-28,user375@empresa.com,289.63,Hogra,NORTE,+52 55 1277 2859,3,Producto dañado,,MXN
+PED-00376,2024-05-04,user376@empresa.com,69.88,Hogra,Norte,+52 55 6929 7792,,null,,MXN
+PED-00377,2024-03-19,user377@empresa.com,34.67,electronica,NORTE,+52 55 5675 2170,2,Producto dañado,,MXN
+PED-00378,2024-04-25,user378@empresa.com,160.81,Electrónica,Este,+52 55 6308 3462,4,null,,MXN
+PED-00379,2024-02-15,user379@empresa.com,138.9,ELECTRONICA,NORTE,+52 55 1287 6953,3,Regular,,MXN
+PED-00380,2024-09-17,user380@empresa.com,87.74,ELECTRONICA,Oeste,+52 55 2161 1129,3,null,,MXN
+PED-00381,2024-01-21,,27.44,Alimentos,NORTE,+52 55 9151 6983,,N/A,,MXN
+PED-00382,2024-06-22,user382@empresa.com,16.92,Rop,norte,+52 55 8469 1244,5,Entrega rápida,,MXN
+PED-00383,2024-03-16,user383@empresa.com,18.71,electronica,NORTE,+52 55 3176 6002,,Producto dañado,,MXN
+PED-00384,2024-07-25,,19.92,Alimentos,norte,+52 55 4398 9497,3,N/A,,MXN
+PED-00385,2024-11-12,user385@empresa.com,18.04,Alimentos,Norte,+52 55 8392 2371,2,Producto dañado,,MXN
+PED-00386,2024-10-16,user386@empresa.com,29.04,Ropa,Este,+52 55 5654 6300,5,Entrega rápida,,MXN
+PED-00387,2024-08-06,user387@empresa.com,53.69,Ropa,Sur,+52 55 6505 7553,,Excelente,,MXN
+PED-00388,2024-12-24,user388@empresa.com,61.68,Alimentos,Sur,+52 55 8498 7636,,null,,MXN
+PED-00389,2024-12-21,user389@empresa.com,14.05,Electrónica ,Este,+52 55 1194 3537,3,Regular,,MXN
+PED-00390,2024-08-26,user390@empresa.com,73.44,Rop,Sur,+52 55 3229 4009,3,Excelente,,MXN
+PED-00391,2024-12-04,user391@empresa.com,60.63,electronica,NORTE,+52 55 3077 8845,4,Excelente,,MXN
+PED-00392,2024-10-08,user392@empresa.com,47.87,Alimentos,Norte,+52 55 5873 9635,,sin información,,MXN
+PED-00393,2024-10-28,user393@empresa.com,26.45,ELECTRONICA,Norte,+52 55 6856 2015,3,Buen servicio,,MXN
+PED-00394,2024-02-28,user394@empresa.com,14.4,Rop,Este,+52 55 9745 3350,1,N/A,,MXN
+PED-00395,2024-12-05,user395@empresa.com,107.82,Ropa,Sur,teléfono inválido,5,N/A,,MXN
+PED-00396,2024-09-04,user396@empresa.com,60.1,ELECTRONICA,NORTE,+52 55 8701 9376,1,N/A,,MXN
+PED-00397,2024-11-22,user397@empresa.com,82.89,Ropa,Norte,+52 55 6672 6593,5,N/A,,MXN
+PED-00398,2024-01-09,user398@empresa.com,32.72,Ropa,Norte,+52 55 7155 6543,,Excelente,,MXN
+PED-00399,2024-01-21,user399@empresa.com,28.5,Rop,Oeste,+52 55 2881 9713,4,N/A,,MXN
+PED-00400,2024-04-13,user400@empresa.com,185.12,Ropa,Oeste,teléfono inválido,3,Buen servicio,,MXN
+PED-00401,2024-12-16,user401@empresa.com,1333.84,Hogra,Norte,+52 55 5883 8206,3,,,MXN
+PED-00402,2024-03-06,-,38.3,Electrónica,Este,+52 55 2409 6197,3,Entrega rápida,,MXN
+PED-00403,2024-02-19,user403@empresa.com,65.55,Hogra,norte,+52 55 9718 3172,,N/A,,MXN
+PED-00404,2024-05-15,user404@empresa.com,49.44,Electrónica,norte,teléfono inválido,5,Regular,,MXN
+PED-00405,2024-09-02,user405@empresa.com,20.19,Ropa,NORTE,+52 55 3669 8825,3,,,MXN
+PED-00406,2024-10-24,user406@empresa.com,31.88,electronica,Norte,+52 55 5769 6247,1,Regular,,MXN
+PED-00407,2024-02-27,user407@empresa.com,609.12,electronica,Norte,+52 55 7135 6573,3,Regular,,MXN
+PED-00408,2024-05-23,user408@empresa.com,23.27,Electrónica,Norte,+52 55 8189 5535,,Producto dañado,,MXN
+PED-00409,2024-08-01,user409@empresa.com,59.65,ELECTRONICA,Este,+52 55 8697 9386,4,Regular,,MXN
+PED-00410,2024-06-01,user410@empresa.com,25.11,Rop,Oeste,+52 55 9044 5218,1,N/A,,MXN
+PED-00411,2024-02-15,user411@empresa.com,50.87,Ropa,Norte,teléfono inválido,3,Producto dañado,,MXN
+PED-00412,2024-01-11,user412@empresa.com,23.32,Rop,Norte,+52 55 6874 6581,3,sin información,,MXN
+PED-00413,2024-05-26,user413@empresa.com,29.59,Hogra,Sur,+52 55 4789 8148,2,Excelente,,MXN
+PED-00414,2024-09-22,user414@empresa.com,9.63,electronica,Este,+52 55 3364 4629,5,Regular,,MXN
+PED-00415,2024-11-27,user415@empresa.com,61.19,Electrónica ,NORTE,+52 55 6675 9872,1,Buen servicio,,MXN
+PED-00416,2024-01-13,user416@empresa.com,35.43,Hogra,Norte,+52 55 5651 1609,2,Entrega rápida,,MXN
+PED-00417,2024-01-02,user417@empresa.com,100.86,Hogra,Sur,+52 55 4866 1371,4,Regular,,MXN
+PED-00418,2024-09-03,user418@empresa.com,50.74,Electrónica,norte,+52 55 7911 7010,5,sin información,,MXN
+PED-00419,2024-01-21,user419@empresa.com,22.58,Hogar,NORTE,+52 55 1864 2268,1,null,,MXN
+PED-00420,2024-07-06,user420@empresa.com,16.98,Hogra,Norte,+52 55 9976 5571,3,sin información,,MXN
+PED-00421,2024-12-17,user421@empresa.com,54.25,Ropa,Norte,+52 55 3237 5054,1,null,,MXN
+PED-00422,2024-05-05,user422@empresa.com,262.79,Alimentos,Sur,+52 55 7394 8891,3,sin información,,MXN
+PED-00423,2024-06-03,user423@empresa.com,27.61,Alimentos,Este,+52 55 1325 8774,5,Excelente,,MXN
+PED-00424,2024-05-23,N/A,6.07,Ropa,Norte,+52 55 5932 5603,3,Entrega rápida,,MXN
+PED-00425,2024-05-21,user425@empresa.com,69.46,Hogar,norte,+52 55 9832 8754,4,sin información,,MXN
+PED-00426,2024-05-10,N/A,227.19,Hogar,Norte,+52 55 2367 5042,,null,,MXN
+PED-00427,2024-10-19,user427@empresa.com,103.97,Electrónica,norte,+52 55 3575 7754,3,Regular,,MXN
+PED-00428,2024-01-21,user428@empresa.com,12.64,electronica,NORTE,+52 55 2986 3240,4,Excelente,,MXN
+PED-00429,2024-09-14,user429@empresa.com,62.88,Rop,NORTE,+52 55 8604 9320,,Excelente,,MXN
+PED-00430,2024-01-19,user430@empresa.com,148.5,Hogar,Oeste,+52 55 8493 5103,5,Regular,,MXN
+PED-00431,2024-04-01,user431@empresa.com,32.68,Electrónica ,Oeste,+52 55 3994 4744,5,Buen servicio,,MXN
+PED-00432,2024-01-08,user432@empresa.com,28.34,Electrónica,norte,+52 55 6594 8531,1,Producto dañado,,MXN
+PED-00433,2024-02-28,user433@empresa.com,29.4,ELECTRONICA,Este,+52 55 2644 4144,4,Entrega rápida,,MXN
+PED-00434,2024-08-07,user434@empresa.com,42.97,Electrónica,Norte,+52 55 1242 5085,4,Entrega rápida,,MXN
+PED-00435,2024-10-26,user435@empresa.com,13.52,Hogra,Norte,+52 55 8130 7828,2,Buen servicio,,MXN
+PED-00436,2024-02-22,user436@empresa.com,68.71,Rop,Oeste,+52 55 7331 4512,2,Producto dañado,,MXN
+PED-00437,2024-06-03,user437@empresa.com,72.93,ELECTRONICA,norte,+52 55 3158 6162,,Entrega rápida,,MXN
+PED-00438,2024-11-18,user438@empresa.com,75.04,ELECTRONICA,Norte,+52 55 3035 8977,,null,,MXN
+PED-00439,2024-12-01,sin dato,51.73,Electrónica ,Norte,+52 55 7770 1298,2,,,MXN
+PED-00440,2024-06-12,user440@empresa.com,13.11,Electrónica ,Este,+52 55 5232 5306,,,,MXN
+PED-00441,2024-05-27,user441@empresa.com,,Electrónica ,Sur,+52 55 7578 5875,3,Entrega rápida,,MXN
+PED-00442,2024-09-17,user442@empresa.com,40.19,Electrónica,Oeste,+52 55 7582 2802,2,N/A,,MXN
+PED-00443,2024-07-15,user443@empresa.com,109.46,Rop,Oeste,+52 55 3657 4346,4,Entrega rápida,,MXN
+PED-00444,2024-05-21,N/A,80.72,Electrónica,Sur,+52 55 1941 2907,3,Regular,,MXN
+PED-00445,2024-02-11,user445@empresa.com,81.96,Alimentos,Norte,+52 55 9105 2243,,Regular,,MXN
+PED-00446,2024-03-07,user446@empresa.com,38.3,Hogra,Este,+52 55 2466 4957,5,Producto dañado,,MXN
+PED-00447,2024-06-28,user447@empresa.com,16.32,Hogra,Este,+52 55 1262 5362,1,Excelente,,MXN
+PED-00448,2024-02-06,user448@empresa.com,214.4,Electrónica ,Oeste,+52 55 8833 2893,2,null,,MXN
+PED-00449,2024-02-02,N/A,4.28,Alimentos,Este,+52 55 9106 2652,5,Buen servicio,,MXN
+PED-00450,2024-02-15,user450@empresa.com,26.33,Hogar,NORTE,+52 55 4892 1599,,Entrega rápida,,MXN
+PED-00451,2024-11-19,user451@empresa.com,16.46,Hogar,Sur,+52 55 9792 9572,4,null,,MXN
+PED-00452,2024-02-20,user452@empresa.com,29.79,Electrónica ,Norte,+52 55 6599 7448,1,Buen servicio,,MXN
+PED-00453,2024-09-06,user453@empresa.com,40.99,Electrónica,NORTE,+52 55 8382 9982,5,Regular,,MXN
+PED-00454,2024-01-24,user454@empresa.com,35.16,Electrónica ,Sur,+52 55 1746 9504,1,sin información,,MXN
+PED-00455,2024-12-23,user455@empresa.com,379.35,electronica,norte,+52 55 8008 3381,2,null,,MXN
+PED-00456,2024-10-19,user456@empresa.com,37.09,ELECTRONICA,Oeste,teléfono inválido,,,,MXN
+PED-00457,2024-01-05,user457@empresa.com,180.91,Hogra,Este,+52 55 2773 3547,4,Entrega rápida,,MXN
+PED-00458,2024-04-10,user458@empresa.com,32.53,Hogar,norte,+52 55 1946 1506,,Producto dañado,,MXN
+PED-00459,2024-08-17,user459@empresa.com,18.46,Ropa,Este,+52 55 7719 9435,1,,,MXN
+PED-00460,2024-10-17,user460@empresa.com,80.58,Hogar,NORTE,+52 55 7360 8657,5,Excelente,,MXN
+PED-00461,2024-12-20,sin dato,31.26,Hogra,Norte,+52 55 2192 2464,2,N/A,,MXN
+PED-00462,2024-08-05,user462@empresa.com,69.5,ELECTRONICA,Norte,+52 55 7106 9864,2,Buen servicio,,MXN
+PED-00463,2024-02-06,user463@empresa.com,110.39,Hogra,Norte,+52 55 2211 2539,,Regular,,MXN
+PED-00464,2024-05-02,user464@empresa.com,30.88,Ropa,Este,+52 55 9693 9921,5,Entrega rápida,,MXN
+PED-00465,2024-11-11,user465@empresa.com,63.54,Electrónica ,norte,+52 55 8345 5386,5,Producto dañado,,MXN
+PED-00466,2024-11-19,user466@empresa.com,559.32,Alimentos,Norte,+52 55 1919 3339,1,sin información,,MXN
+PED-00467,2024-09-23,user467@empresa.com,101.16,Ropa,norte,+52 55 6930 6402,,Regular,,MXN
+PED-00468,2024-07-16,user468@empresa.com,67.73,Hogra,Este,+52 55 6275 1507,,Entrega rápida,,MXN
+PED-00469,2024-11-22,user469@empresa.com,116.94,Hogra,NORTE,+52 55 9750 8354,3,sin información,,MXN
+PED-00470,2024-08-04,user470@empresa.com,206.78,electronica,norte,+52 55 5516 4622,,Producto dañado,,MXN
+PED-00471,2024-08-04,user471@empresa.com,122.37,electronica,NORTE,+52 55 9111 4715,2,N/A,,MXN
+PED-00472,2024-08-25,user472@empresa.com,533.71,Rop,Este,+52 55 2301 8370,1,,,MXN
+PED-00473,2024-03-03,user473@empresa.com,206.13,electronica,Este,+52 55 7411 7365,5,,,MXN
+PED-00474,2024-11-18,user474@empresa.com,47.25,Electrónica,Oeste,+52 55 1692 2478,,Regular,,MXN
+PED-00475,2024-10-19,user475@empresa.com,28.72,Alimentos,Este,+52 55 1441 3646,1,Entrega rápida,,MXN
+PED-00476,2024-03-21,user476@empresa.com,48.98,ELECTRONICA,Este,+52 55 7533 5677,,Entrega rápida,,MXN
+PED-00477,2024-05-18,user477@empresa.com,127.91,Ropa,Sur,+52 55 3645 9210,5,Producto dañado,,MXN
+PED-00478,2024-12-10,user478@empresa.com,32.38,Hogra,Norte,+52 55 8933 6476,4,N/A,,MXN
+PED-00479,2024-06-21,user479@empresa.com,132.5,Rop,Oeste,teléfono inválido,5,Entrega rápida,,MXN
+PED-00480,2024-06-01,user480@empresa.com,,Rop,Oeste,+52 55 7089 8396,5,Producto dañado,,MXN
+PED-00481,2024-05-09,user481@empresa.com,114.26,ELECTRONICA,Oeste,+52 55 1861 9346,5,Excelente,,MXN
+PED-00482,2024-12-26,N/A,158.6,Alimentos,Sur,+52 55 2269 1404,,Regular,,MXN
+PED-00483,2024-02-17,-,29.02,Ropa,NORTE,teléfono inválido,3,Excelente,,MXN
+PED-00484,2024-10-13,user484@empresa.com,82.06,Hogar,Este,+52 55 9938 2725,5,Regular,,MXN
+PED-00485,2024-11-09,user485@empresa.com,25.16,electronica,Norte,+52 55 6811 6606,2,sin información,,MXN
+PED-00486,2024-10-25,user486@empresa.com,5.68,Electrónica ,norte,+52 55 9465 3306,2,Producto dañado,,MXN
+PED-00487,2024-09-22,user487@empresa.com,38.26,Rop,NORTE,+52 55 1421 6540,1,Producto dañado,,MXN
+PED-00488,2024-08-11,user488@empresa.com,192.51,electronica,Este,+52 55 5675 7748,3,null,,MXN
+PED-00489,2024-01-26,user489@empresa.com,,electronica,Sur,teléfono inválido,1,sin información,,MXN
+PED-00490,2024-04-01,user490@empresa.com,19.36,Electrónica,Este,+52 55 3181 4096,2,Producto dañado,,MXN
+PED-00491,2024-08-17,user491@empresa.com,170.78,Alimentos,Este,+52 55 6882 6982,2,Entrega rápida,,MXN
+PED-00492,2024-03-20,user492@empresa.com,425.28,Electrónica ,Sur,+52 55 9415 9411,4,Regular,,MXN
+PED-00493,2024-08-22,user493@empresa.com,48.17,Hogar,Oeste,teléfono inválido,5,Excelente,,MXN
+PED-00494,2024-10-28,user494@empresa.com,44.59,Hogra,Oeste,+52 55 5524 7559,2,Regular,,MXN
+PED-00495,2024-07-14,user495@empresa.com,,Electrónica,Norte,+52 55 6673 4124,,,,MXN
+PED-00496,2024-08-02,user496@empresa.com,22.63,electronica,Norte,+52 55 2353 4854,,null,,MXN
+PED-00497,2024-10-14,user497@empresa.com,57.01,electronica,Oeste,+52 55 3170 6506,1,Producto dañado,,MXN
+PED-00498,2024-11-24,user498@empresa.com,75.05,Electrónica ,NORTE,+52 55 3395 9220,1,N/A,,MXN
+PED-00001,2024-03-07,user499@empresa.com,117.96,Electrónica ,norte,+52 55 6515 3670,5,Buen servicio,,MXN
+PED-00000,2024-07-20,user0@empresa.com,25.05,Rop,Sur,+52 55 1139 2424,,Producto dañado,,MXN
+PED-00001,2024-11-08,user1@empresa.com,97.19,Electrónica,NORTE,+52 55 9708 7043,5,null,,MXN
+PED-00002,2024-05-07,user2@empresa.com,35.01,Rop,norte,+52 55 7261 1887,5,,,MXN
+PED-00003,2024-10-19,null,20.08,ELECTRONICA,norte,+52 55 1049 4951,3,sin información,,MXN
+PED-00004,2024-07-11,user4@empresa.com,90.19,Rop,NORTE,+52 55 5821 7340,3,Producto dañado,,MXN
+PED-00005,2024-11-24,user5@empresa.com,88.28,electronica,Sur,teléfono inválido,2,Regular,,MXN
+PED-00006,2024-05-04,user6@empresa.com,,Hogra,NORTE,+52 55 8846 9643,4,sin información,,MXN
+PED-00007,2024-08-24,user7@empresa.com,68.67,Hogar,Norte,+52 55 4765 3438,4,Producto dañado,,MXN
+PED-00008,2024-03-22,user8@empresa.com,57.73,Alimentos,Oeste,+52 55 7358 9319,3,sin información,,MXN
+PED-00009,2024-05-02,N/A,118.46,electronica,NORTE,+52 55 5855 7547,5,Entrega rápida,,MXN
+PED-00010,2024-08-12,user10@empresa.com,732.09,Rop,Sur,+52 55 7481 3761,3,sin información,,MXN
+PED-00011,2024-06-02,user11@empresa.com,73.65,Electrónica ,Este,+52 55 7361 6693,5,null,,MXN
+PED-00012,2024-12-21,user12@empresa.com,362.47,Hogar,Norte,+52 55 7160 1517,5,N/A,,MXN
+PED-00013,2024-01-12,user13@empresa.com,113.24,electronica,Este,+52 55 2988 4802,3,N/A,,MXN
+PED-00014,2024-10-22,user14@empresa.com,68.3,Alimentos,NORTE,+52 55 8162 7241,1,N/A,,MXN
