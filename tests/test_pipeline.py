@@ -125,7 +125,7 @@ def test_markdown_generation():
     assert "# " in md  # Has header
     assert "test.csv" in md
     assert "95.0" in md
-    assert "OUTLIER_IQR" in md
+    assert "outliers IQR" in md  # issue message appears in plain language
 
 
 def test_empty_csv():

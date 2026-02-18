@@ -5,6 +5,10 @@ Incluye: semáforo general, top 3 problemas, acción recomendada.
 
 from typing import Dict, List
 
+from core.check_descriptions import (
+    SEVERITY_EMOJI, friendly_title, business_impact, severity_short,
+)
+
 
 TRAFFIC_LIGHT = {
     "A": ("VERDE", "La calidad de datos es excelente. No se requieren acciones inmediatas."),
@@ -45,10 +49,12 @@ def generate_executive_summary(report: Dict) -> str:
     # Resumen de severidades (solo si hay)
     active_sevs = [(k, v) for k, v in sev.items() if v > 0 and k != "INFO"]
     if active_sevs:
-        lines.append("| Severidad | Cantidad |")
-        lines.append("|-----------|----------|")
+        lines.append("| Nivel | Cantidad |")
+        lines.append("|-------|----------|")
         for level, count in active_sevs:
-            lines.append(f"| {level} | {count} |")
+            emoji = SEVERITY_EMOJI.get(level, "")
+            label = severity_short(level)
+            lines.append(f"| {emoji} {label} | {count} |")
         lines.append("")
 
     # Top 3 problemas
@@ -59,12 +65,20 @@ def generate_executive_summary(report: Dict) -> str:
     lines.append("")
 
     if not critical_issues and sev.get("CRITICAL", 0) == 0 and sev.get("HIGH", 0) == 0:
-        lines.append("No se encontraron problemas críticos o de alta severidad.")
+        lines.append("No se encontraron problemas criticos o de alta severidad.")
         lines.append("")
     else:
         for i, issue in enumerate(critical_issues[:3], 1):
-            lines.append(f"**{i}. [{issue['severity']}] {issue['column']}** — {issue['check_id']}")
-            lines.append(f"   {issue['message'][:150]}")
+            sev_level = issue.get("severity", "?")
+            emoji = SEVERITY_EMOJI.get(sev_level, "")
+            title = friendly_title(issue.get("check_id", "?"))
+            col = issue.get("column", "?")
+            msg = issue.get("message", "")[:150]
+            impact = business_impact(issue.get("check_id", "?"))
+            lines.append(f"**{i}. {emoji} `{col}`** — {title}")
+            lines.append(f"   {msg}")
+            if impact:
+                lines.append(f"   *{impact}*")
             lines.append("")
 
     # Acciones recomendadas (top 3)

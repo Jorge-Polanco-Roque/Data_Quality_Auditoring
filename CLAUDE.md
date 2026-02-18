@@ -6,6 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Data Quality Auditor — a Python framework that dynamically audits any CSV file without prior configuration. It uses classical statistics (no ML) to detect anomalies, outliers, nulls, format errors, PII, statistical drift, and business rule violations, then generates severity-classified reports in 7 formats. The full specification lives in `SkillDeCalidad.md`.
 
+The `README.md` is written for both technical and non-technical audiences. It includes:
+- Executive-friendly scoring guide (A-F grades, traffic-light severity levels)
+- 4 Mermaid diagrams (pipeline, type detection tree, LangGraph flow, one-click flow)
+- Complete glossary of 72+ checks with "¿Por qué importa?" business-impact explanations
+- Glossary of statistical concepts explained in plain language with real-world analogies
+
 ## Quick Start (One-Click)
 
 ```bash

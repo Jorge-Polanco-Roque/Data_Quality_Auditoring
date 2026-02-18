@@ -8,6 +8,10 @@ import numpy as np
 
 from models.semantic_type import SemanticType
 from models.check_result import CheckResult
+from core.check_descriptions import (
+    friendly_title, business_impact, friendly_type, severity_short,
+    SEVERITY_EMOJI,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -63,37 +67,43 @@ class ReportBuilder:
         summary = report["dataset_summary"]
 
         lines.append("+" + "=" * 60 + "+")
-        lines.append("|" + "DATA QUALITY AUDIT REPORT".center(60) + "|")
+        lines.append("|" + "REPORTE DE CALIDAD DE DATOS".center(60) + "|")
         lines.append("+" + "=" * 60 + "+")
         lines.append("")
-        lines.append(f"Archivo     : {meta['file_analyzed']}")
-        lines.append(f"Filas       : {meta['total_rows']:,}")
-        lines.append(f"Columnas    : {meta['total_columns']}")
-        lines.append(f"Generado    : {meta['generated_at']}")
-        lines.append(f"Health Score: {summary['health_score']}/100  ({summary['health_grade']})")
+        lines.append(f"Archivo       : {meta['file_analyzed']}")
+        lines.append(f"Filas         : {meta['total_rows']:,}")
+        lines.append(f"Columnas      : {meta['total_columns']}")
+        lines.append(f"Generado      : {meta['generated_at']}")
+        lines.append(f"Calificacion  : {summary['health_score']}/100  ({summary['health_grade']})")
         lines.append("")
 
-        # Resumen de issues
+        # Resumen de hallazgos
         lines.append("-" * 60)
-        lines.append("RESUMEN DE ISSUES")
+        lines.append("RESUMEN DE HALLAZGOS")
         lines.append("-" * 60)
         sev = summary["issues_by_severity"]
-        lines.append(f"  CRITICAL : {sev.get('CRITICAL', 0)}")
-        lines.append(f"  HIGH     : {sev.get('HIGH', 0)}")
-        lines.append(f"  MEDIUM   : {sev.get('MEDIUM', 0)}")
-        lines.append(f"  LOW      : {sev.get('LOW', 0)}")
+        lines.append(f"  Critico      : {sev.get('CRITICAL', 0)}")
+        lines.append(f"  Alto         : {sev.get('HIGH', 0)}")
+        lines.append(f"  Medio        : {sev.get('MEDIUM', 0)}")
+        lines.append(f"  Bajo         : {sev.get('LOW', 0)}")
         lines.append("")
 
-        # Puntos críticos
+        # Puntos criticos
         critical_issues = report.get("critical_issues", [])
         if critical_issues:
             lines.append("-" * 60)
-            lines.append("PUNTOS CRITICOS (requieren accion inmediata)")
+            lines.append("HALLAZGOS QUE REQUIEREN ATENCION")
             lines.append("-" * 60)
             for issue in critical_issues:
-                lines.append(f"  [{issue['severity']}] {issue['column']} -> {issue['check_id']}")
+                check_id = issue.get("check_id", "?")
+                sev_label = severity_short(issue.get("severity", "?"))
+                title = friendly_title(check_id)
+                impact = business_impact(check_id)
+                lines.append(f"  [{sev_label}] {issue['column']} — {title}")
                 lines.append(f"  Detalle   : {issue['message']}")
                 lines.append(f"  Afectados : {issue['affected_count']:,} registros ({issue['affected_pct']:.1%})")
+                if impact:
+                    lines.append(f"  Impacto   : {impact}")
                 if issue.get("sample_values"):
                     lines.append(f"  Muestra   : {issue['sample_values'][:5]}")
                 lines.append("  " + "-" * 45)
@@ -104,15 +114,16 @@ class ReportBuilder:
         lines.append("REPORTE POR COLUMNA")
         lines.append("-" * 60)
         for col_name, profile in report.get("column_profiles", {}).items():
-            score_info = f"Score: {profile['health_score']}/100 ({profile['health_grade']})"
-            lines.append(f"  {col_name} [{profile['semantic_type']}] -- {score_info}")
-            lines.append(f"  Nulls: {profile['null_pct']:.1%} | Unicos: {profile['n_unique']:,}")
+            sem_label = friendly_type(profile.get("semantic_type", "?"))
+            score_info = f"Puntaje: {profile['health_score']}/100 ({profile['health_grade']})"
+            lines.append(f"  {col_name} [{sem_label}] -- {score_info}")
+            lines.append(f"  Vacios: {profile['null_pct']:.1%} | Unicos: {profile['n_unique']:,}")
             issues = profile.get("issues", [])
             if issues:
-                issue_strs = [f"[{i['severity']}] {i['check_id']}" for i in issues]
-                lines.append(f"  Issues: {', '.join(issue_strs)}")
+                issue_strs = [f"[{severity_short(i.get('severity', '?'))}] {friendly_title(i.get('check_id', '?'))}" for i in issues]
+                lines.append(f"  Problemas: {', '.join(issue_strs)}")
             else:
-                lines.append("  Issues: ninguno")
+                lines.append("  Problemas: ninguno")
             lines.append("  " + "-" * 45)
         lines.append("")
 
@@ -120,10 +131,10 @@ class ReportBuilder:
         recs = report.get("recommendations", [])
         if recs:
             lines.append("-" * 60)
-            lines.append("RECOMENDACIONES PRIORIZADAS")
+            lines.append("ACCIONES RECOMENDADAS (por prioridad)")
             lines.append("-" * 60)
             for i, rec in enumerate(recs, 1):
-                lines.append(f"  #{i}. [{rec['category']}] {rec['column']}: {rec['action']}")
+                lines.append(f"  #{i}. {rec['column']}: {rec['action']}")
             lines.append("")
 
         text = "\n".join(lines)
@@ -236,7 +247,8 @@ class ReportBuilder:
             "CLASS_IMBALANCE": "Verificar si el desbalance de clases es esperado",
             "WHITESPACE_ISSUES": "Aplicar trim a valores con espacios leading/trailing",
         }
-        return actions.get(result.check_id, f"Revisar issue {result.check_id} en columna {result.column}")
+        fallback = f"Revisar: {friendly_title(result.check_id)} en columna {result.column}"
+        return actions.get(result.check_id, fallback)
 
     def _categorize_check(self, check_id: str) -> str:
         categories = {

@@ -58,7 +58,7 @@ def test_executive_summary():
     assert "Resumen Ejecutivo" in md
     assert "75.0/100" in md
     assert "VERDE" in md
-    assert "MEAN_SHIFT" in md
+    assert "promedio cambio" in md
 
 
 def test_executive_summary_with_trend():
