@@ -1,0 +1,25 @@
+columns:
+  sepal_length:
+    type: numeric
+    not_null: true
+    min: 4.0
+    max: 8.0
+  sepal_width:
+    type: numeric
+    not_null: true
+    min: 1.5
+    max: 5.0
+  petal_length:
+    type: numeric
+    not_null: true
+    min: 0.5
+    max: 7.5
+  petal_width:
+    type: numeric
+    not_null: true
+    min: 0.0
+    max: 3.0
+  species:
+    type: categorical
+    not_null: true
+    allowed_values: [setosa, versicolor, virginica]

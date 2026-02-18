@@ -1,0 +1,15 @@
+disabled_checks:
+  - NORMALITY_ANDERSON
+  - BENFORD_LAW
+  - ADF_STATIONARITY
+
+severity_overrides:
+  MEAN_SHIFT: LOW
+  WILCOXON_PAIRED: INFO
+
+thresholds:
+  NULL_RATE:
+    CRITICAL: 0.50
+    HIGH: 0.20
+  OUTLIER_IQR:
+    threshold: 2.0
